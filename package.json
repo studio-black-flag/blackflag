@@ -6,12 +6,13 @@
   "license": "ISC",
   "main": "build/index.js",
   "scripts": {
-    "start": "webpack --watch",
+    "local:start": "webpack --watch",
     "local:build": "webpack",
     "scss": "node-sass --watch scss -o css",
     "docz:dev": "docz dev",
     "docz:build": "docz build",
-    "docz:serve": "docz build && docz serve"
+    "docz:serve": "docz build && docz serve",
+    "start": "docz serve"
   },
   "dependencies": {
     "react": "^16.4.0",
