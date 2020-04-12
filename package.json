@@ -10,7 +10,7 @@
     "local:build": "webpack",
     "scss": "node-sass --watch scss -o css",
     "docz:dev": "docz dev",
-    "build": "docz build",
+    "docz:build": "docz build",
     "docz:serve": "docz build && docz serve"
   },
   "dependencies": {
