@@ -12,6 +12,7 @@
     "docz:dev": "docz dev",
     "docz:build": "docz build",
     "docz:serve": "docz build && docz serve",
+    "build": "docz build",
     "start": "docz serve"
   },
   "dependencies": {
