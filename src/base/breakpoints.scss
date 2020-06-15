@@ -1,0 +1,109 @@
+$breakpoints: (
+  xs: 320px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+) !default;
+
+// @include _assert-ascending($breakpoints, '$breakpoints');
+
+@function get-breakpoint($name) {
+  @return map-get($breakpoints, $name);
+}
+
+@mixin media-breakpoint($name) {
+  @media (min-width: get-breakpoint($name)+1px) {
+    @content;
+  }
+}
+@mixin media-breakpoint-max($name) {
+  @media (max-width: get-breakpoint($name)) {
+    @content;
+  }
+}
+
+@mixin make-breakpoints() {
+  @content('');
+  @each $breakpoint, $value in $breakpoints {
+    @include media-breakpoint($breakpoint) {
+      @content(_#{$breakpoint});
+    };
+  }
+}
+@mixin make-breakpoints-2() {
+  @content('');
+  @each $breakpoint, $value in $breakpoints {
+    @include media-breakpoint($breakpoint) {
+      @content($breakpoint);
+    };
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// @mixin make-breakpoints-max() {
+//   @content('');
+//   @each $breakpoint, $value in $breakpoints {
+//     @include media-breakpoint-max($breakpoint) {
+//       @content(_#{$breakpoint});
+//     };
+//   }
+// }
+
+// @mixin make-class-breakpoints-max($class, $ampersand:false) {
+//   @include make-class($class, $ampersand) {
+//     @content;
+//   };
+//   @each $breakpoint, $value in $breakpoints {
+//     @include media-breakpoint-max($breakpoint) {
+//       @include make-class($class, $ampersand, _#{$breakpoint}){
+//         @content ;
+//       };
+//     };
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// @mixin media($types...) {
+//   @each $type in $types {
+//     @media #{$type} {
+//       @content($type);
+//     }
+//   }
+// }
+//
+// @include media(screen, print) using ($type) {
+//   h1 {
+//     font-size: 40px;
+//     @if $type == print {
+//       font-family: Calluna;
+//     }
+//   }
+// }

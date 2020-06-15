@@ -1,0 +1,71 @@
+$spacer: 1rem !default;
+
+$space-sizes:(
+  0: 0,
+  1:  $spacer * .25,
+  2:  $spacer * .5,
+  3:  $spacer,
+  4:  $spacer * 1.5,
+  5:  $spacer * 3,
+  6:  $spacer * 4
+)!default;
+
+@function space($size) {
+  @return map-get($space-sizes, $size);
+}
+
+$props: (m:margin,p:padding);
+
+@each $size, $space in $space-sizes {
+  @each $prefix, $prop in $props {
+    .#{$prefix}-#{$size} { #{$prop}: $space !important; }
+    .#{$prefix}t-#{$size},
+    .#{$prefix}y-#{$size} {
+      #{$prop}-top: $space !important;
+    }
+    .#{$prefix}r-#{$size},
+    .#{$prefix}x-#{$size} {
+      #{$prop}-right: $space !important;
+    }
+    .#{$prefix}b-#{$size},
+    .#{$prefix}y-#{$size} {
+      #{$prop}-bottom: $space !important;
+    }
+    .#{$prefix}l-#{$size},
+    .#{$prefix}x-#{$size} {
+      #{$prop}-left: $space !important;
+    }
+  }
+}
+@each $size, $space in $space-sizes {
+  .m--#{$size} { margin: -$space !important; }
+  .mt--#{$size},
+  .my--#{$size} {
+    margin-top: -$space !important;
+  }
+  .mr--#{$size},
+  .mx--#{$size} {
+    margin-right: -$space !important;
+  }
+  .mb--#{$size},
+  .my--#{$size} {
+    margin-bottom: -$space !important;
+  }
+  .ml--#{$size},
+  .mx--#{$size} {
+    margin-left: -$space !important;
+  }
+}
+.mx-auto {
+  // display: block!important;
+  margin-left: auto!important;
+  margin-right: auto!important;
+}
+.ml-auto {
+  // display: block!important;
+  margin-left: auto!important;
+}
+.mr-auto {
+  // display: block!important;
+  margin-right: auto!important;
+}

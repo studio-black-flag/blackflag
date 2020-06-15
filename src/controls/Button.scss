@@ -1,0 +1,93 @@
+$button-color: color('dark') !default;
+$button-background-color: color('light')  !default;
+$button-color-hover: color('light') !default;
+$button-background-color-hover: color('dark') !default;
+$button-border-color: color('dark') !default;
+
+$button-padding: 0 1rem !default;
+
+$button-border-width: 0.1rem !default;
+$button-border-style: solid !default;
+$button-border-radius: 2rem !default;
+
+$button-text-align: center;
+$button-text-decoration: none;
+
+$button-font-weight: bold;
+
+$button-transition-duration: .3s;
+
+$button-size: 42px;
+
+
+.Button {
+  padding: $button-padding;
+
+  border-color: $button-border-color;
+  border-width: $button-border-width;
+  border-style: $button-border-style;
+  border-radius: $button-border-radius;
+
+  background-color: $button-background-color;
+  color: $button-color;
+
+  text-align: $button-text-align;
+  text-decoration: $button-text-decoration;
+
+  font-weight: $button-font-weight;
+
+  transition: $button-transition-duration;
+  height: $button-size;
+
+  display: inline-flex;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  font-size: $font-size;
+
+  outline: none;
+  cursor: pointer;
+
+  &:hover {
+    color: $button-color-hover;
+    background-color: $button-background-color-hover;
+  }
+
+  &.disabled, &:disabled {
+    pointer-events: none;
+    opacity: $opacity-disabled;
+  }
+
+  &.circle {
+    width: $button-size;
+    padding: 0;
+    border-radius: 100%;
+  }
+  &.outline {
+    border: 1px solid $button-background-color;
+    background-color: transparent;
+  }
+
+  @each $color, $value in $colors {
+    &.#{$color} {
+      background-color: color($color);
+      color: color($color, 'contrast');
+      border-color: color($color);
+      &:hover {
+        background-color: color($color, 'hover');
+      }
+    }
+    &.outline.#{$color} {
+      border-color: color($color);
+      color: color($color);
+      background-color: transparent;
+    }
+  }
+
+  // @include make-breakpoints() using ($suffix) {
+  //   &.block#{$suffix} {
+  //     display: flex;
+  //     width: 100%;
+  //   }
+  // }
+}

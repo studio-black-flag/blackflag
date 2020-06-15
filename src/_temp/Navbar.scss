@@ -1,0 +1,46 @@
+.Navbar, .Navbar .Container {
+	display: flex;
+	justify-content: space-between;
+}
+.Navbar-brand {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+.Navbar-menu {
+	width: 100%;
+	display: flex;
+	@include make-breakpoints() using ($suffix) {
+    &.collapse#{$suffix} {
+			.Navbar-menu-inner {
+      	display: flex;
+    	}
+			.Navbar-menu-toogle {
+      	display: none;
+			}
+    }
+  }
+}
+.Navbar-menu-toogle {
+	display: block;
+}
+.Navbar-menu-item {
+	list-style: none;
+	margin: 3px;
+}
+.Navbar-menu-inner {
+	width: 100%;
+	display: none;
+	justify-content: flex-end;
+	align-items: center;
+	padding: 0;
+	margin: 0;
+}
+// [class*="Navbar-menu-toogle"] {
+// 	display: block;
+// 	@include make-breakpoints() using ($suffix) {
+// 		&.Navbar-menu-toogle#{$suffix} {
+// 			display: none;
+// 		}
+// 	}
+// }

@@ -1,0 +1,31 @@
+@include make-breakpoints() using ($suffix) {
+	.hide#{$suffix} {
+		display: none!important;
+	}
+	.inline#{$suffix} {
+		display: inline!important;
+		width: auto!important;
+	}
+	.inline-block#{$suffix} {
+		display: inline-block!important;
+		width: auto!important;
+	}
+	.block#{$suffix} {
+		display: block!important;
+		// width: 100%!important;
+	}
+	.flex#{$suffix} {
+		display: flex!important;
+		// width: 100%!important;
+	}
+	.grid#{$suffix} {
+		display: grid!important;
+		// width: 100%!important;
+	}
+	.fixed#{$suffix} {
+		position: fixed!important;
+	}
+	.relative#{$suffix} {
+		position: relative!important;
+	}
+}

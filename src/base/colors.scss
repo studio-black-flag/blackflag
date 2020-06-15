@@ -1,0 +1,44 @@
+@function color($color, $state:false) {
+  @if $state {
+    @if $enable-css-variables {
+      @return var(--color-#{$color}-#{$state});
+    }
+    @else {
+     @return color-state($color, $state);
+    }
+  }
+  @else {
+    @if $enable-css-variables {
+      @return var(--color-#{$color});
+    }
+    @else {
+     @return map-get($colors, $color);
+    }
+  }
+};
+
+@function color-state($color, $state) {
+  @return map-get((
+    'muted':    rgba(map-get($colors, $color), $opacity-muted),
+    'disabled': rgba(map-get($colors, $color), $opacity-disabled),
+    'overlay': rgba(map-get($colors, $color), $opacity-overlay),
+    'hover':    mix(map-get($colors, $color), map-get($colors, 'dark'), 80),
+    'active':   rgba(map-get($colors, $color), 1),
+    'focus':    rgba(map-get($colors, $color), 1),
+    'contrast':  color-contrast(map-get($colors, $color))
+  ), $state);
+};
+
+@function color-contrast($color) {
+  $r: red($color);
+  $g: green($color);
+  $b: blue($color);
+
+  $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+
+  @if ($yiq >= 150) {
+    @return $color-dark;
+  } @else {
+    @return $color-light;
+  }
+}

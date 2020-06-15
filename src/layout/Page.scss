@@ -1,0 +1,15 @@
+.Page {
+  display: grid;
+  &.with-header {
+    grid-template-rows: 60px 1fr;
+  }
+  &.with-aside {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+
+    &>main {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,93 @@
+[class*='Field-'] {
+	margin-bottom: 1rem;
+	.field-label {
+    display: block;
+		.field-required-text {
+			color: color('dark', 'muted');
+			margin-left: .3rem;
+		}
+	}
+	input, textarea {
+		outline: none;
+		color: color('dark');
+		width: 100%;
+		display: block;
+		background-color: color('light');
+		border: 1px solid color('dark', 'muted');
+		box-sizing: border-box;
+		border-radius: 4px;
+		padding: 0.7rem;
+		&:hover {
+			border-color: color('dark');
+		}
+		&:focus, &:active {
+			border-color: color('primary');
+		}
+	  &:disabled {
+	    pointer-events: none;
+	    opacity: $opacity-disabled;
+	  }
+	}
+
+	&.error {
+		color: color('error');
+		.field-label {
+			.field-required-text {
+				color: color('error');
+			}
+		}
+		input, textarea {
+			color: color('error');
+			border-color: color('error', "muted");
+			&:hover, &:focus, &:active {
+				border-color: color('error');
+			}
+		}
+	}
+	&.disabled {
+		color: color('dark', 'muted');
+	}
+}
+.field-error {
+	margin: 0.2rem 0 0;
+}
+
+.Field-radio, .Field-checkbox {
+	display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: row-reverse;
+	cursor: pointer;
+	margin-bottom: 10px;
+	label, input {
+		cursor: pointer;
+	}
+	input {
+		-webkit-appearance: none;
+ 		width: 16px;
+ 		height: 16px;
+ 		border: 1px solid color('dark');
+ 		display: block;
+ 		margin-right: 10px;
+		outline: none;
+
+		&:checked {
+		 border: 4px solid color('primary');
+		}
+	}
+}
+.Field-radio {
+	input {
+		border-radius: 100%;
+	}
+}
+
+.Field-file {
+	position: relative;
+	input {
+		// position: absolute;
+		// top:0; right: 0; bottom: 0; left: 0;
+    // opacity: 0;
+    // cursor: pointer;
+	}
+}

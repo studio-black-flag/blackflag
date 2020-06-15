@@ -1,0 +1,95 @@
+.Modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+  z-index: 100;
+  transition: .3s;
+  align-items: center;
+  justify-content: center;
+  .modal-scroll {
+    width: 100%;
+    overflow: auto;
+    max-height: 100%;
+    padding: 2rem 0;
+    position: relative;
+    z-index: 1;
+  }
+  .modal-content {
+    pointer-events: none;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    margin: 0 auto;
+
+    // position: absolute;
+    // top: 0;
+    // right: 0;
+    // bottom: 0;
+    // left: 0;
+    // z-index: 1;
+    // overflow: hidden;
+
+    animation-fill-mode: forwards;
+    transform: scale(0);
+    .modal-inner {
+      background-color: color('light');
+      pointer-events: all;
+      border-radius: 4px;
+      padding: 2rem;
+      width: 100%;
+    }
+    &.show {
+      display: flex;
+      animation-name: modal-inner;
+      animation-duration: .3s;
+    }
+    &.transparent {
+      .modal-inner {
+        background-color: transparent;
+      }
+    }
+  }
+  .modal-group {
+    display: none;
+    position: relative;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    &.show {
+      display: flex;
+    }
+
+  }
+  .modal-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: color('dark', 'overlay');
+  }
+
+  &.show {
+    display: flex;
+    .modal-bg {
+      animation-name: modal-bg;
+      animation-duration: .3s;
+    }
+  }
+}
+
+@keyframes modal-bg {
+  0% { opacity: 0;}
+  100% { opacity: 1;}
+}
+@keyframes modal-inner {
+  0% { transform: scale(0);}
+  100% { transform: scale(1);}
+}

@@ -1,0 +1,46 @@
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+) !default;
+$container-padding-x: 2rem!default;
+
+@include _assert-ascending($container-max-widths, "$container-max-widths");
+
+.Container {
+  width: 100%;
+  padding-left: $container-padding-x;
+  padding-right: $container-padding-x;
+  &.center {
+    margin: 0 auto;
+  }
+	@each $name, $value in $container-max-widths {
+    @include media-breakpoint($name) {
+      max-width: $value;
+    };
+  };
+  @include make-breakpoints-2() using ($breakpoint) {
+    &.max-#{$breakpoint} {
+      max-width: get-breakpoint($breakpoint);
+    }
+  }
+}
+.container-width {
+  width: calc(100% - #{$container-padding-x*2});
+	@each $name, $value in $container-max-widths {
+    @include media-breakpoint($name) {
+      max-width: calc(#{$value} - #{$container-padding-x*2});
+    };
+  };
+}
+
+// @each $breakpoint, $breakpoint-value in $breakpoints {
+//   @each $container-max-width, $container-max-width-value in $container-max-widths {
+// 		@include media-breakpoint($breakpoint) {
+// 	    .max-width-#{$container-max-width}_#{$breakpoint} {
+// 	       max-width: $container-max-width-value;
+// 	    }
+//     }
+//   }
+// }

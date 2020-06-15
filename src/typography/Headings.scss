@@ -1,0 +1,44 @@
+$headings-margin: 0 !default;
+$headings-font-family: null !default;
+$headings-font-weight: bold !default;
+$headings-line-height: 1.2em !default;
+$headings-color: null !default;
+
+$h1-font-size: $font-size * 2 !default;
+$h2-font-size: $font-size * 1.60 !default;
+$h3-font-size: $font-size * 1.45 !default;
+$h4-font-size: $font-size * 1.30 !default;
+$h5-font-size: $font-size * 1.15 !default;
+$h6-font-size: $font-size !default;
+
+h1, h2, h3, h4, h5, h6 {
+  margin: $headings-margin;
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight;
+  line-height: $headings-line-height;
+  color: $headings-color;
+}
+
+h1 { font-size: $h1-font-size }
+h2 { font-size: $h2-font-size }
+h3 { font-size: $h3-font-size }
+h4 { font-size: $h4-font-size }
+h5 { font-size: $h5-font-size }
+h6 { font-size: $h6-font-size }
+
+@include media-breakpoint('md') {
+  $h1-font-size: $font-size * 2.5 ;
+  $h2-font-size: $font-size * 2 ;
+  $h3-font-size: $font-size * 1.75 ;
+  $h4-font-size: $font-size * 1.5 ;
+  $h5-font-size: $font-size * 1.25 ;
+  $h6-font-size: $font-size ;
+
+  h1 { font-size: $h1-font-size }
+  h2 { font-size: $h2-font-size }
+  h3 { font-size: $h3-font-size }
+  h4 { font-size: $h4-font-size }
+  h5 { font-size: $h5-font-size }
+  h6 { font-size: $h6-font-size }
+
+}

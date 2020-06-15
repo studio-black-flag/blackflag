@@ -1,0 +1,25 @@
+.Tabs {
+	border-bottom: 1px solid color(dark, muted);
+	margin-bottom: space(3);
+}
+.Tab {
+	padding: space(3) space(4);
+	color: color(dark, muted);
+	display: inline-flex;
+	cursor: pointer;
+	font-weight: bold;
+
+	&.active {
+		color: color(primary);
+		position: relative;
+		&:after {
+			content: '';
+			position: absolute;
+			right: space(4);
+			bottom: -1px;
+			left: space(4);
+			height: 2px;
+			background-color: color(primary);
+		}
+	}
+}

@@ -1,0 +1,40 @@
+
+.Grid {
+	display: grid;
+	grid-template-columns:repeat($grid-columns, 1fr);
+	grid-gap: $grid-gap;
+	width: 100%;
+
+	@for $i from 1 through $grid-columns {
+		&.grid-#{$i} {
+			grid-template-columns:repeat($i, 1fr);
+		}
+	}
+}
+
+// CELL
+.Cell {
+	grid-area: auto / span $grid-columns;
+}
+
+@include make-breakpoints() using ($suffix) {
+	@for $i from 1 through $grid-columns {
+	  .cell-#{$i}#{$suffix} {
+	    grid-area: auto / span (abs($i));
+	  }
+	  .cell-start-#{$i}#{$suffix} {
+	    grid-column-start: abs($i);
+	  }
+	  .cell-end-#{$i}#{$suffix} {
+	    grid-column-end: abs($i)+1;
+	  }
+	}
+	@for $i from 1 through $grid-rows {
+	  .cell-y-start-#{$i}#{$suffix} {
+	    grid-row-start: abs($i);
+	  }
+	  .cell-y-end-#{$i}#{$suffix} {
+	    grid-row-end: abs($i);
+	  }
+	}
+}
