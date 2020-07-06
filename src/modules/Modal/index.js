@@ -1,6 +1,6 @@
 import React from 'react';
-import { Container, Button } from "../"
-import { utils } from "../"
+import { Container, Button } from "../../"
+import { utils } from "../../"
 
 const Modal = ({children, className, hide, show, ...props}) => {
   if (hide) return null

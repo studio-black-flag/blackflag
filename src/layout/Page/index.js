@@ -14,11 +14,11 @@ const Page = ({children, className, hide, name, header, aside, footer, ...props}
 
   return (
     <div className={c} {...props}>
-      {header &&
-        <header className="page-header">{header}</header>
-      }
       {aside &&
         <aside className="page-aside">{aside}</aside>
+      }
+      {header &&
+        <header className="page-header">{header}</header>
       }
       <main className="page-main">
         {children}

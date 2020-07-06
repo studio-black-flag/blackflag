@@ -22,7 +22,7 @@ $button-size: 42px;
 
 .Button {
   padding: $button-padding;
-
+  min-width: 200px;
   border-color: $button-border-color;
   border-width: $button-border-width;
   border-style: $button-border-style;
@@ -62,6 +62,7 @@ $button-size: 42px;
     width: $button-size;
     padding: 0;
     border-radius: 100%;
+    min-width: initial;
   }
   &.outline {
     border: 1px solid $button-background-color;
@@ -75,6 +76,7 @@ $button-size: 42px;
       border-color: color($color);
       &:hover {
         background-color: color($color, 'hover');
+        border-color: color($color, 'hover');
       }
     }
     &.outline.#{$color} {

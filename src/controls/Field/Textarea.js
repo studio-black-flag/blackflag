@@ -1,7 +1,9 @@
 import React from 'react'
 
-export function FieldTextarea(props) {
+const FieldTextarea = React.forwardRef((props, ref) => {
   return (
-    <textarea {...props}>{props.value}</textarea>
+    <textarea {...props} ref={ref}>{props.value}</textarea>
   )
-}
+})
+
+export { FieldTextarea };

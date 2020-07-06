@@ -1,7 +1,9 @@
 import React from 'react'
 
-export function FieldRadio(props) {
+const FieldRadio = React.forwardRef((props, ref) => {
   return (
-    <input {...props}/>
+    <input {...props} ref={ref}/>
   )
-}
+})
+
+export { FieldRadio };

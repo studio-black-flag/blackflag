@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Button = ({children, className, hide, onClick, link, gtag, tag, ...props}) => {
+const Button = React.forwardRef(({children, className, hide, onClick, link, gtag, tag, ...props}, ref) => {
   if (hide) return null
 
-  const { to, href, disabled, required } = props
+  const { to, href, disabled } = props
 
   const onButtonClick = (e) => {
     if (window.gtag && gtag) {
@@ -26,8 +26,8 @@ const Button = ({children, className, hide, onClick, link, gtag, tag, ...props})
   else if (href) ButtonTag = 'a'
 
   return (
-    <ButtonTag onClick={onButtonClick} className={c} {...props}>{children}</ButtonTag>
+    <ButtonTag onClick={onButtonClick} className={c} {...props} ref={ref}>{children}</ButtonTag>
   );
-}
+})
 
 export { Button };

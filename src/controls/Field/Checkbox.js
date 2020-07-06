@@ -1,7 +1,9 @@
 import React from 'react'
 
-export function FieldCheckbox(props) {
+const FieldCheckbox = React.forwardRef((props, ref) => {
   return (
-    <input {...props}/>
+    <input {...props} ref={ref}/>
   );
-}
+})
+
+export { FieldCheckbox };

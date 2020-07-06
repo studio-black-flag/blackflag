@@ -1,9 +1,9 @@
 {
   "name": "blackflag",
-  "version": "0.0.2-beta.20",
+  "version": "0.0.2-beta.27",
   "description": "Black Flag",
   "author": "Marcelo Kohl",
-  "license": "ISC",
+  "license": "MIT",
   "main": "build/index.js",
   "scripts": {
     "start": "webpack --watch",
@@ -14,10 +14,8 @@
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2"
   },
-  "dependencies": {
-    "webpack": "4.42.0"
-  },
   "devDependencies": {
+    "webpack": "4.42.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",

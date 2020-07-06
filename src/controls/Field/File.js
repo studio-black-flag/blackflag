@@ -1,6 +1,7 @@
 import React, {Fragment, useState, useEffect } from 'react'
+import {Icon, Button} from '../../'
 
-export function FieldFile({onChange, max, ...props}) {
+const FieldFile = React.forwardRef(({onChange, label, max, ...props}, ref) => {
   const [files, setFiles] = useState([])
 
   const { multiple } = props
@@ -16,6 +17,7 @@ export function FieldFile({onChange, max, ...props}) {
     } else {
       setFiles(Array.from(e.target.files));
     }
+    e.target.value = ""
   }
 
   const removeFile = (index) => {
@@ -30,14 +32,17 @@ export function FieldFile({onChange, max, ...props}) {
 
   return (
     <Fragment>
-      <input onChange={e => onInputFile(e)}  {...props}/>
+      <Button>
+        <span>{label}</span>
+        <input alt="" title="" onChange={e => onInputFile(e)}  {...props} ref={ref}/>
+      </Button>
 
       { files.length != 0 &&
         <ul>
         {
           files.map((item, i) => {
             return (
-              <li key={i}>{item.name} <Icon onClick={() => removeFile(i)} name="close" /></li>
+              <li key={i}><span><Icon name="attach" />{item.name}</span> <Icon onClick={() => removeFile(i)} name="close" /></li>
             )
           })
         }
@@ -45,4 +50,6 @@ export function FieldFile({onChange, max, ...props}) {
       }
     </Fragment>
   );
-}
+})
+
+export { FieldFile };

@@ -1,7 +1,9 @@
 import React from 'react'
 
-export function FieldDefault(props) {
+const FieldDefault = React.forwardRef((props, ref) => {
   return (
-    <input {...props}/>
+    <input {...props} ref={ref}/>
   );
-}
+})
+
+export { FieldDefault }
