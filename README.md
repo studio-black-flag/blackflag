@@ -18,3 +18,6 @@ Usando um componente importado
 import 'blackflag/scss'
 ```
 Importando isso na página onde vai usar o componente ou no arquivo jsx root do projeto, todos os componentes são estilizados segundo o tema
+
+
+[Button](/src/controls/Button/README.md)
