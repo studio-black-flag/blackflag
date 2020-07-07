@@ -1,7 +1,7 @@
 # Icon
 
 ```jsx
-	<Icon name="edit" />
+<Icon name="edit" />
 ```
 ## Lista de icones
 Ícone | Nome

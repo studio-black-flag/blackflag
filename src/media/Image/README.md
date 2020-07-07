@@ -1,4 +1,6 @@
 # Image
 ```jsx
-	<Image src="" />
+<Image src="https://github.com/studio-black-flag/theme/raw/master/docs/assets/images/default.jpg" />
 ```
+
+https://github.com/studio-black-flag/theme/raw/master/docs/assets/images/default.jpg
