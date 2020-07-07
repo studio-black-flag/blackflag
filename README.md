@@ -21,5 +21,3 @@ Importando isso na página onde vai usar o componente ou no arquivo jsx root do 
 
 
 [Button](/src/controls/Button/README.md)
-
-![doc icon](/docs/assets/icons/close.svg)

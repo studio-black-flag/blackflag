@@ -1,0 +1,7 @@
+var a = [
+	"warning-circled","arrow-bottom","arrow-left","arrow-right","arrow-top","attach","check","check-circled","close","document","document-empty","documents","documents-empty","edit","exit","fullscreen-off","fullscreen-on","information-circled","lock","lock-open","long-arrow-bottom","long-arrow-left","long-arrow-right","long-arrow-top","menu","menu-long","minus","plus","question-circled","send"
+]
+
+a.forEach((item, i) => {
+	console.log('!['+item+'](https://github.com/studio-black-flag/theme/raw/master/docs/assets/icons/'+item+'.svg) | '+item);
+});
