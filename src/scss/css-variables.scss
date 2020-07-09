@@ -1,3 +1,5 @@
+$color-states: ('contrast', 'muted', 'disabled', 'hover');
+
 @mixin make-colors-css-variables($colors) {
 	@each $name, $value in $colors {
 		--color-#{$name}: #{$value};
@@ -7,6 +9,8 @@
 	}
 }
 
-:root {
-	@include make-colors-css-variables($colors);
+@if $enable-css-variables {
+	:root {
+		@include make-colors-css-variables($colors);
+	}
 }

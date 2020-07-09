@@ -1,42 +1,20 @@
-$button-color: color('dark') !default;
-$button-background-color: color('light')  !default;
-$button-color-hover: color('light') !default;
-$button-background-color-hover: color('dark') !default;
-$button-border-color: color('dark') !default;
-
-$button-padding: 0 1rem !default;
-
-$button-border-width: 0.1rem !default;
-$button-border-style: solid !default;
-$button-border-radius: 2rem !default;
-
-$button-text-align: center;
-$button-text-decoration: none;
-
-$button-font-weight: bold;
-
-$button-transition-duration: .3s;
-
-$button-size: 42px;
-
-
 .Button {
-  padding: $button-padding;
-  min-width: 200px;
-  border-color: $button-border-color;
-  border-width: $button-border-width;
-  border-style: $button-border-style;
-  border-radius: $button-border-radius;
+  padding: 0 1rem;
+  min-width: $button-min-width;
+  border-color: color('dark');
+  border-width: 0.1rem;
+  border-style: solid;
+  border-radius: 2rem;
 
-  background-color: $button-background-color;
-  color: $button-color;
+  background-color: color('light');
+  color: color('dark');
 
-  text-align: $button-text-align;
-  text-decoration: $button-text-decoration;
+  text-align: center;
+  text-decoration: none;
 
-  font-weight: $button-font-weight;
+  font-weight: bold;
 
-  transition: $button-transition-duration;
+  transition: .15s;
   height: $button-size;
 
   display: inline-flex;
@@ -48,9 +26,11 @@ $button-size: 42px;
   outline: none;
   cursor: pointer;
 
+  margin-bottom: $spacer;
+
   &:hover {
-    color: $button-color-hover;
-    background-color: $button-background-color-hover;
+    color: color('light');
+    background-color: color('dark');
   }
 
   &.disabled, &:disabled {
@@ -65,7 +45,7 @@ $button-size: 42px;
     min-width: initial;
   }
   &.outline {
-    border: 1px solid $button-background-color;
+    border: 1px solid color('light');
     background-color: transparent;
   }
 
@@ -73,10 +53,9 @@ $button-size: 42px;
     &.#{$color} {
       background-color: color($color);
       color: color($color, 'contrast');
-      border-color: color($color);
+      border: 0;
       &:hover {
         background-color: color($color, 'hover');
-        border-color: color($color, 'hover');
       }
     }
     &.outline.#{$color} {
@@ -85,11 +64,4 @@ $button-size: 42px;
       background-color: transparent;
     }
   }
-
-  // @include make-breakpoints() using ($suffix) {
-  //   &.block#{$suffix} {
-  //     display: flex;
-  //     width: 100%;
-  //   }
-  // }
 }

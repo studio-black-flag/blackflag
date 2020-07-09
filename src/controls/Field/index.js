@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { utils } from '../../'
 
 import {FieldDefault} from './Default'
 import {FieldRadio} from './Radio'
@@ -6,6 +7,7 @@ import {FieldTextarea} from './Textarea'
 import {FieldCheckbox} from './Checkbox'
 import {FieldFile} from './File'
 import {FieldSwitch} from './Switch'
+import {FieldSelect} from './Select'
 
 const Field = React.forwardRef(({children, className, hide, onChange, error, id, ...props}, ref) => {
   if (hide) return null
@@ -15,7 +17,7 @@ const Field = React.forwardRef(({children, className, hide, onChange, error, id,
   if (id) {
     localId = id
   } else {
-    localId = 'id' + (new Date()).getTime()
+    localId = utils.randomId()
   }
 
   const [localValue, setLocalValue] = useState()
@@ -43,6 +45,7 @@ const Field = React.forwardRef(({children, className, hide, onChange, error, id,
     case 'checkbox':          FieldTag = FieldCheckbox; break;
     case 'file':              FieldTag = FieldFile; break;
     case 'switch':            FieldTag = FieldSwitch; break;
+    case 'select':            FieldTag = FieldSelect; break;
   }
 
   return (
@@ -68,8 +71,14 @@ const Field = React.forwardRef(({children, className, hide, onChange, error, id,
   );
 })
 
+Field.select = React.forwardRef((props, ref) => {
+  return (
+    <Field type="select" {...props} ref={ref} />
+  )
+})
+
 Field.defaultProps = {
   type: 'text'
 }
 
-export {Field}
+export { Field }

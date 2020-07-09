@@ -46,5 +46,9 @@ export default {
 	    delete localProps[item]
 	  });
 	  return localProps
+	},
+
+	randomId: () => {
+	  return 'id' + new Date().getTime()
 	}
 }

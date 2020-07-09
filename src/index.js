@@ -1,4 +1,4 @@
-import utils from "./utils";
+import utils from "./utils/js";
 export {utils}
 
 // CONTROLS
@@ -14,6 +14,7 @@ export { Container } from "./layout/Container";
 export { Grid } from "./layout/Grid";
 export { Page } from "./layout/Page";
 export { Table } from "./layout/Table";
+export { Wrapper } from "./layout/Wrapper";
 
 // MODULES
 export { Progress } from "./modules/Progress";

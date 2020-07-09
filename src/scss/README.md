@@ -1,10 +1,44 @@
-//CONFIG
-$enable-css-variables: false!default;
-$enable-icon-font: true!default;
+# SCSS
 
+## Variables
+```scss
+// OPACITY
 $opacity-overlay: 0.8!default;
 $opacity-muted: 0.4!default;
 $opacity-disabled: 0.2!default;
+
+// FONT
+$font-family: 'Montserrat', sans-serif !default;
+$font-size: 16px !default;
+
+// CONTAINER
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+) !default;
+$container-padding-x: 2rem!default;
+
+// BREAKPOINTS
+$breakpoints: (
+  xs: 320px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+) !default;
+
+// SPACES
+$spacer: 1rem !default;
+$space-sizes:(
+  0: 0,
+  1:  $spacer * .25,
+  2:  $spacer * .5,
+  3:  $spacer,
+  4:  $spacer * 1.5,
+  5:  $spacer * 3
+)!default;
 
 // GRID
 $grid-gap: 10px !default;
@@ -12,8 +46,6 @@ $grid-columns: 12 !default;
 $grid-rows: 10 !default;
 
 // COLORS
-$color-states: ('contrast', 'overlay', 'muted', 'disabled', 'hover', 'active', 'focus');
-
 $color-dark:              #333 !default;
 $color-light:             #fff !default;
 $color-primary:           #5F2EFF !default;
@@ -27,3 +59,4 @@ $colors: (
   'error':              $color-error,
   'success':            $color-success
 )!default;
+```

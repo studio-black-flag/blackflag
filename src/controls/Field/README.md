@@ -34,6 +34,10 @@ const fieldHandler = e => { alert(e.target.value) }
 
 ## Types
 O tipo do campo de formulário
+### Select
+```jsx
+<Field.select options={[{value:1,label:'Option 1'}, {value:2,label:'Option 2'}]}>Select</Field.select>
+```
 ### File
 ```jsx
 <Field type="file">File</Field>

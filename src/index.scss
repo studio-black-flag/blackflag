@@ -1,19 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap'); // https://fonts.google.com/specimen/Montserrat?query=mont&sidebar.open
 
-@import 'base/fonts.scss';
-@import 'base/colors.scss';
-@import 'base/variables';
-@import 'base/css-variables';
-@import 'base/mixins';
-@import 'base/functions';
-@import 'base/normalize';
-@import 'base/breakpoints';
-@import 'base/display';
-@import 'base/flexbox';
-@import 'base/sizes';
-@import 'base/spaces';
+@import 'scss';
 
-@import 'utils';
+@import 'utils/css';
 
 @import 'typography';
 @import 'controls';
@@ -21,14 +10,10 @@
 @import 'layout';
 @import 'media';
 
-$app-background-color: $color-light !default;
-$app-color: $color-dark !default;
-
 html, body, body > #root, .App {
   height: 100%;
-  // overflow: auto;
-  background-color: $app-background-color;
-  color: $app-color;
+  background-color: $color-light;
+  color: $color-dark ;
   font-family: $font-family;
   font-size: $font-size;
 }
