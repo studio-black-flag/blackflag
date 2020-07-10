@@ -18,10 +18,12 @@ import jsUtils from '../src/utils/js/README.md'
 import cssUtils from '../src/utils/css/README.md'
 
 import scss from '../src/scss/README.md'
+import typography from '../src/typography/README.md'
 
 export default [
 	{label:'About', path:'/', data:about},
 	{label:'SCSS', path:'/scss', data:scss},
+	{label:'Typography', path:'/typography', data:typography},
 	{label:'Components', menu:[
 		{label:'Button', path:'/components/controls/button', data:button},
 		{label:'Field', path:'/components/controls/field', data:field},
