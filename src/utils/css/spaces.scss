@@ -1,12 +1,11 @@
-
+$props: (m:margin,p:padding);
 
 @function space($size) {
-  @return map-get($space-sizes, $size);
+  @return map-get($spaces, $size);
 }
 
-$props: (m:margin,p:padding);
 @include make-breakpoints() using ($suffix) {
-  @each $size, $space in $space-sizes {
+  @each $size, $space in $spaces {
     @each $prefix, $prop in $props {
       .#{$prefix}-#{$size}#{$suffix}  { #{$prop}: $space !important; }
       .#{$prefix}t-#{$size}#{$suffix} ,
@@ -27,36 +26,15 @@ $props: (m:margin,p:padding);
       }
     }
   }
-}
-@each $size, $space in $space-sizes {
-  .m--#{$size} { margin: -$space !important; }
-  .mt--#{$size},
-  .my--#{$size} {
-    margin-top: -$space !important;
+
+  .mx-auto#{$suffix} {
+    margin-left: auto!important;
+    margin-right: auto!important;
   }
-  .mr--#{$size},
-  .mx--#{$size} {
-    margin-right: -$space !important;
+  .ml-auto#{$suffix} {
+    margin-left: auto!important;
   }
-  .mb--#{$size},
-  .my--#{$size} {
-    margin-bottom: -$space !important;
+  .mr-auto#{$suffix} {
+    margin-right: auto!important;
   }
-  .ml--#{$size},
-  .mx--#{$size} {
-    margin-left: -$space !important;
-  }
-}
-.mx-auto {
-  // display: block!important;
-  margin-left: auto!important;
-  margin-right: auto!important;
-}
-.ml-auto {
-  // display: block!important;
-  margin-left: auto!important;
-}
-.mr-auto {
-  // display: block!important;
-  margin-right: auto!important;
 }

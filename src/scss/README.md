@@ -30,14 +30,14 @@ $breakpoints: (
 ) !default;
 
 // SPACES
-$spacer: 1rem !default;
-$space-sizes:(
+$space: 1rem !default;
+$spaces:(
   0: 0,
-  1:  $spacer * .25,
-  2:  $spacer * .5,
-  3:  $spacer,
-  4:  $spacer * 1.5,
-  5:  $spacer * 3
+  1:  $space * .25,
+  2:  $space * .5,
+  3:  $space,
+  4:  $space * 1.5,
+  5:  $space * 3
 )!default;
 
 // GRID

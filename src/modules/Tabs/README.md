@@ -11,7 +11,7 @@
 O onChange do **Tabs** retorna o valor da posicão da **Tabs.tab** clicada.
 ```jsx
 <Tabs onChange={onTabChange} active={currentTab}>
-	<Tabs.tab>
+	<Tabs.tab className="test" title="title">
 		Tab 0
 	</Tabs.tab>
 	<Tabs.tab>
@@ -29,7 +29,7 @@ O onChange do **Tabs** retorna o valor da posicão da **Tabs.tab** clicada.
 Também é possível passar as tabs por meio do atributo *data*
 ```jsx
 <Tabs data ={[
-	{children:'Tab 1'},
+	{children:'Tab 1', className:'test', title:'title'},
 	{children:'Tab 2'},
 	{children:'Tab 3'},
 	{children:'Tab 4'},

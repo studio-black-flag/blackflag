@@ -1,13 +1,12 @@
 import React, {useState, useEffect} from 'react';
 
-const Tab = ({children, className, hide, ...props}) => {
+const Tab = ({children, className, active, hide, ...props}) => {
   if (hide) return null
-
-	const {} = props
 
 	let c =
 		"Tab" +
-		(className?' '+className:'')
+		(className?' '+className:'') +
+		(active?' active':'')
 
 	return (
 		<a className={c} {...props}>
@@ -40,19 +39,18 @@ const Tabs = ({children, className, hide, data, onChange, active, ...props}) => 
 	return (
 		<div className={c} {...props}>
 			{data &&
-				data.map((item, index) => {
+				data.map(({children, className, ...item}, index) => {
 					++total
 					return (
-						<Tab key={index} className={(index==current ? ' active' : '')} onClick={() => onTabClick(index)}>
-							{item.children}
+						<Tab key={index} {...item} className={(className?className:'') + (index==current ? ' active' : '')} onClick={() => onTabClick(index)}>
+							{children}
 						</Tab>
 					)
 				})
 			}
 			{children &&
 				children2.map((item, index) => {
-          // let index = total + 1
-          let tab = React.cloneElement(item, { onClick: () => onTabClick(index), className: (index==current ? ' active' : '')})
+          let tab = React.cloneElement(item, { onClick: () => onTabClick(index), active: (index==current ? true : false)})
           return (
             tab
           )

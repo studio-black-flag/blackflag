@@ -1,6 +1,8 @@
-.flex-center {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+@include make-breakpoints() using ($suffix) {
+	.flex-center#{$suffix} {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
 }

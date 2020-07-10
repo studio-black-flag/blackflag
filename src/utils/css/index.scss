@@ -3,6 +3,8 @@
 @import 'sizes';
 @import 'spaces';
 
-.pointer {
-  cursor: pointer;
+@include make-breakpoints() using ($suffix) {
+  .pointer#{$suffix} {
+    cursor: pointer;
+  }
 }

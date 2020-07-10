@@ -21,7 +21,7 @@
     };
   }
 }
-@mixin make-breakpoints-2() {
+@mixin loop-breakpoints() {
   @content('');
   @each $breakpoint, $value in $breakpoints {
     @include media-breakpoint($breakpoint) {
