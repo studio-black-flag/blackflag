@@ -3,8 +3,12 @@
 }
 
 @mixin media-breakpoint($name) {
-  @media (min-width: get-breakpoint($name)+1px) {
+  @if $min-breakpoint-name == $name {
     @content;
+  } @else {
+    @media (min-width: get-breakpoint($name)+1px) {
+      @content;
+    }
   }
 }
 @mixin media-breakpoint-max($name) {

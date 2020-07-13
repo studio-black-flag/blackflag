@@ -50,5 +50,9 @@ export default {
 
 	randomId: () => {
 	  return 'id' + new Date().getTime()
+	},
+
+	textEllipsis: (text, max) => {
+    return text.substr(0,max-1)+(text.length>max?'...':'');
 	}
 }

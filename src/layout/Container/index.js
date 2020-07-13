@@ -1,11 +1,12 @@
 import React from 'react'
 
-const Container = ({children, className, hide, ...props}) => {
+const Container = ({children, className, hide, center, ...props}) => {
   if (hide) return null
 
   let c = (
     'Container'+
-    (className?' '+className:'')
+    (className?' '+className:'') + 
+    (center?' center':'')
   )
 
   return (

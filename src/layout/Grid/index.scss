@@ -22,18 +22,18 @@
 	  .cell-#{$i}#{$suffix} {
 	    grid-area: auto / span (abs($i));
 	  }
-	  .cell-start-#{$i}#{$suffix} {
+	  .cell-start-#{$i}#{$suffix}, .start-#{$i}#{$suffix} {
 	    grid-column-start: abs($i);
 	  }
-	  .cell-end-#{$i}#{$suffix} {
+	  .cell-end-#{$i}#{$suffix}, .end-#{$i}#{$suffix} {
 	    grid-column-end: abs($i)+1;
 	  }
 	}
 	@for $i from 1 through $grid-rows {
-	  .cell-y-start-#{$i}#{$suffix} {
+	  .cell-y-start-#{$i}#{$suffix}, .start-y-#{$i}#{$suffix} {
 	    grid-row-start: abs($i);
 	  }
-	  .cell-y-end-#{$i}#{$suffix} {
+	  .cell-y-end-#{$i}#{$suffix}, .end-y-#{$i}#{$suffix} {
 	    grid-row-end: abs($i);
 	  }
 	}

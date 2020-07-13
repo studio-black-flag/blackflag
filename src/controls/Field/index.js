@@ -8,6 +8,7 @@ import {FieldCheckbox} from './Checkbox'
 import {FieldFile} from './File'
 import {FieldSwitch} from './Switch'
 import {FieldSelect} from './Select'
+import {FieldPassword} from './Password'
 
 const Field = React.forwardRef(({children, className, hide, onChange, error, id, ...props}, ref) => {
   if (hide) return null
@@ -46,6 +47,7 @@ const Field = React.forwardRef(({children, className, hide, onChange, error, id,
     case 'file':              FieldTag = FieldFile; break;
     case 'switch':            FieldTag = FieldSwitch; break;
     case 'select':            FieldTag = FieldSelect; break;
+    case 'password':          FieldTag = FieldPassword; break;
   }
 
   return (

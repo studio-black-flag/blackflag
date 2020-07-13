@@ -1,6 +1,6 @@
 import React from 'react'
 
-const FieldSwitch = React.forwardRef(([children, type, ...props], ref) => {
+const FieldSwitch = React.forwardRef(({children, type, ...props}, ref) => {
   return (
     <React.Fragment>
       <input type="checkbox" {...props} ref={ref}/>

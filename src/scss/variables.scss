@@ -1,5 +1,6 @@
 //CONFIG
 $enable-css-variables: true!default;
+$min-breakpoint-name: xs;
 
 // OPACITY
 $opacity-overlay: 0.8!default;
@@ -8,11 +9,19 @@ $opacity-disabled: 0.2!default;
 
 // FONT
 $font-family: 'Montserrat', sans-serif !default;
-$font-size: 1rem !default;
+$font-size: 16px !default;
+$font-scales: (
+  xs: 1.16,
+  sm: 1.2,
+  md: 1.23,
+  lg: 1.26,
+  xl: 1.3,
+) !default;
+$line-height: 1.2em !default;
 
 // BUTTON
 $button-size: 42px;
-$button-min-width: 200px;
+$button-min-width: 160px;
 
 // CONTAINER
 $container-padding-x: 2rem!default;
