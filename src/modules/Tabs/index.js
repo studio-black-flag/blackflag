@@ -49,9 +49,12 @@ const Tabs = ({children, className, hide, data, onChange, active, ...props}) => 
 		(className?' '+className:'')
 
 	let total = 0
-  const children2 = React.Children.toArray(children).filter((child, i) => {
-    return typeof child.props.children == 'object';
-  });
+  const children2 = React.Children.toArray(children)
+  // const children2 = React.Children.toArray(children).filter((child, i) => {
+  //   return typeof child.props.children == 'object';
+  // });
+  //
+  // console.log("item", typeof React.Children.toArray(children))
 
 	return (
 		<div className={c} {...props} ref={viewport}>
