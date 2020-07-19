@@ -39,20 +39,14 @@ export default {
 		return (1-amt)*start+amt*end
 	},
 
-	removeProps: (props, remove) => {
-	  let localProps = {}
-	  Object.assign(localProps, props)
-	  remove.forEach((item, i) => {
-	    delete localProps[item]
-	  });
-	  return localProps
-	},
-
 	randomId: () => {
 	  return 'id' + new Date().getTime()
 	},
 
-	textEllipsis: (text, max) => {
-    return text.substr(0,max-1)+(text.length>max?'...':'');
+	createScriptTag: src => {
+		const script = document.createElement("script");
+		script.src = src;
+		script.async = true;
+		document.body.appendChild(script);
 	}
 }

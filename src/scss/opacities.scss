@@ -1,0 +1,3 @@
+@function opacity($name) {
+  @return map-get($opacities, $name);
+}

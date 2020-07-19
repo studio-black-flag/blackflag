@@ -1,6 +1,5 @@
 import React from 'react';
-import { Container, Button } from "../../"
-import { utils } from "../../"
+import { Container, Button, Icon, utils } from "../../"
 
 const Modal = ({children, className, hide, show, ...props}) => {
   if (hide) return null
@@ -13,14 +12,16 @@ const Modal = ({children, className, hide, show, ...props}) => {
 	return (
 		<div className={c} {...props}>
 			<div className="modal-scroll">
-				{children}
+  			<div className="modal-container">
+  				{children}
+  			</div>
 			</div>
 			<div className="modal-bg"></div>
 		</div>
 	)
 };
 
-Modal.content = ({children, className, hide, show, transparent, ...props}) => {
+Modal.content = ({children, className, hide, show, transparent, header, footer, onClose, ...props}) => {
   if (hide) return null
 
 	let c =
@@ -31,25 +32,36 @@ Modal.content = ({children, className, hide, show, transparent, ...props}) => {
 
 	return (
 		<div className={c} {...props}>
-			<div className="modal-inner">
+      {header &&
+      <div className="modal-header">
+        {header}
+        <Icon onClick={() => onClose(null)} name="close" />
+      </div>
+      }
+			<div className="modal-body">
 				{children}
 			</div>
+      {footer &&
+      <div className="modal-footer">
+        {footer}
+      </div>
+      }
 		</div>
 	)
 };
 
-Modal.group = ({children, className, hide, show, ...props}) => {
-  if (hide) return null
-	let c =
-		"modal-group" +
-		(className?' '+className:'') +
-		(show?' show':'')
-
-	return (
-		<div className={c} {...props}>
-			{children}
-		</div>
-	)
-};
+// Modal.group = ({children, className, hide, show, ...props}) => {
+//   if (hide) return null
+// 	let c =
+// 		"modal-group" +
+// 		(className?' '+className:'') +
+// 		(show?' show':'')
+//
+// 	return (
+// 		<div className={c} {...props}>
+// 			{children}
+// 		</div>
+// 	)
+// };
 
 export { Modal };

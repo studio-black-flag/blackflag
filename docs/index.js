@@ -4,6 +4,7 @@ import button from '../src/controls/Button/README.md'
 import field from '../src/controls/Field/README.md'
 
 import container from '../src/layout/Container/README.md'
+import ellipsis from '../src/layout/Ellipsis/README.md'
 import grid from '../src/layout/Grid/README.md'
 import page from '../src/layout/Page/README.md'
 import table from '../src/layout/Table/README.md'
@@ -30,6 +31,7 @@ export default [
 		{divider:true},
 		{label:'Container', path:'/components/layout/container', data:container},
 		{label:'Grid', path:'/components/layout/grid', data:grid},
+		{label:'Ellipsis', path:'/components/layout/ellipsis', data:ellipsis},
 		{label:'Page', path:'/components/layout/page', data:page},
 		{label:'Table', path:'/components/layout/table', data:table},
 		{divider:true},

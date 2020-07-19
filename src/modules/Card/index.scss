@@ -1,0 +1,13 @@
+.Card {
+	// display: flex;
+	// align-items: center;
+	// overflow: hidden;
+  border-radius: 1rem;
+	border: 1px solid color(dark, ui);
+  &.disabled {
+    opacity: opacity(disabled);
+  }
+}
+.card-footer {
+  border-top: 1px solid color(dark, ui);
+}

@@ -18,6 +18,7 @@ export { Table } from "./layout/Table";
 export { Wrapper } from "./layout/Wrapper";
 
 // MODULES
-export { Progress } from "./modules/Progress";
+export { Card } from "./modules/Card";
 export { Modal } from "./modules/Modal";
+export { Progress } from "./modules/Progress";
 export { Tabs } from "./modules/Tabs";

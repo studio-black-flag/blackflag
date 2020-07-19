@@ -1,11 +1,19 @@
 //CONFIG
-$enable-css-variables: true!default;
+$enable-css-variables: false!default;
 $min-breakpoint-name: xs;
 
 // OPACITY
-$opacity-overlay: 0.8!default;
-$opacity-muted: 0.4!default;
-$opacity-disabled: 0.2!default;
+$opacity-overlay:     0.8!default;
+$opacity-muted:       0.4!default;
+$opacity-disabled:    0.2!default;
+$opacity-ui:          0.05!default;
+
+$opacities: (
+  overlay:     0.8,
+  muted:       0.4,
+  disabled:    0.2,
+  ui:          0.05
+)!default;
 
 // FONT
 $font-family: 'Montserrat', sans-serif !default;
@@ -26,7 +34,7 @@ $button-min-width: 160px;
 // CONTAINER
 $container-padding-x: 2rem!default;
 $container-max-widths: (
-  xs: 320px,
+  xs: 100%,
   sm: 540px,
   md: 720px,
   lg: 960px,
@@ -43,14 +51,16 @@ $breakpoints: (
 ) !default;
 
 // SPACES
-$space: 1rem !default;
+$space: 8px !default;
 $spaces:(
   0: 0,
-  1:  $space * .25,
-  2:  $space * .5,
-  3:  $space,
-  4:  $space * 1.5,
-  5:  $space * 3
+  1: $space,
+  2: $space * 2,
+  3: $space * 3,
+  4: $space * 4,
+  5: $space * 6,
+  6: $space * 8,
+  7: $space * 10
 )!default;
 
 // GRID
@@ -70,4 +80,8 @@ $colors: (
   'primary':            $color-primary,
   'error':              $color-error,
   'success':            $color-success
+)!default;
+
+$colors-brands: (
+  'whatsapp':               #25D366,
 )!default;

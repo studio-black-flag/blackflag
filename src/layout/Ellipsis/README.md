@@ -1,20 +1,14 @@
-# Container
+# Ellipsis
 
-Container servem pra demilitar uma largura máxima para o conteúdo.
+Esse componente coloca reticências (...) no final do texto, basta apenas setar o total de linhas
 ## Marcação
 ```jsx
-<Container className="bg-doc">
-  Conteúdo
-</Container>
-```
+  <Ellipsis lines={1}>Texto</Ellipsis>
 
-## Variáveis SCSS
-```scss
-$container-max-widths: (
-  sm: 540px,
-  md: 720px,
-  lg: 960px,
-  xl: 1140px
-) !default;
-$container-padding-x: 2rem!default;
+```
+---
+```jsx
+<Container className="bg-doc max-sm">
+  <Ellipsis lines={2}>Varietates autem iniurasque fortunae facile veteres philosophorum praeceptis instituta vita superabat. Amicitiam autem adhibendam esse censent</Ellipsis>
+</Container>
 ```

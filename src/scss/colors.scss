@@ -13,6 +13,7 @@
   @return map-get((
     'muted':    rgba(map-get($colors, $color), $opacity-muted),
     'disabled': rgba(map-get($colors, $color), $opacity-disabled),
+    'ui': rgba(map-get($colors, $color), $opacity-ui),
     'hover':    mix(map-get($colors, $color), map-get($colors, 'dark'), 70),
     'contrast':  color-contrast(map-get($colors, $color))
   ), $state);
@@ -30,4 +31,8 @@
   } @else {
     @return $color-light;
   }
+}
+
+@function color-brand($name) {
+  @return map-get($colors-brands, $name);
 }

@@ -1,6 +1,9 @@
 .Tabs {
 	border-bottom: 1px solid color(dark, muted);
 	margin-bottom: space(3);
+	white-space: nowrap;
+	overflow-x: hidden;
+	overflow-y: hidden;
 }
 .Tab {
 	padding: space(3) space(4);

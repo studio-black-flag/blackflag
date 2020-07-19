@@ -25,5 +25,8 @@
     "sass-loader": "^7.3.1",
     "webpack": "4.42.0",
     "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "react-scrollbooster": "^0.1.0"
   }
 }

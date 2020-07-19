@@ -1,1 +1,8 @@
-.Wrapper {}
+.Ellipsis {
+  width: 100%;
+  overflow-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+}

@@ -9,72 +9,6 @@
   transition: .3s;
   align-items: center;
   justify-content: center;
-  .modal-scroll {
-    width: 100%;
-    overflow: auto;
-    max-height: 100%;
-    padding: 2rem 0;
-    position: relative;
-    z-index: 1;
-  }
-  .modal-content {
-    pointer-events: none;
-    align-items: center;
-    justify-content: center;
-    display: none;
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    margin: 0 auto;
-
-    // position: absolute;
-    // top: 0;
-    // right: 0;
-    // bottom: 0;
-    // left: 0;
-    // z-index: 1;
-    // overflow: hidden;
-
-    animation-fill-mode: forwards;
-    transform: scale(0);
-    .modal-inner {
-      background-color: color('light');
-      pointer-events: all;
-      border-radius: 4px;
-      padding: 2rem;
-      width: 100%;
-    }
-    &.show {
-      display: flex;
-      animation-name: modal-inner;
-      animation-duration: .3s;
-    }
-    &.transparent {
-      .modal-inner {
-        background-color: transparent;
-      }
-    }
-  }
-  .modal-group {
-    display: none;
-    position: relative;
-    z-index: 1;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    &.show {
-      display: flex;
-    }
-
-  }
-  .modal-bg {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(color('dark'), $opacity-overlay);
-  }
 
   &.show {
     display: flex;
@@ -83,6 +17,97 @@
       animation-duration: .3s;
     }
   }
+}
+.modal-scroll {
+  width: 100%;
+  overflow: auto;
+  max-height: 100%;
+  padding: 2rem 0;
+  position: relative;
+  z-index: 1;
+}
+.modal-container {
+  display: grid;
+  grid-template-columns:repeat($grid-columns, 1fr);
+  margin: 0 auto;
+  @each $name, $value in $container-max-widths {
+    @include media-breakpoint($name) {
+      max-width: calc(#{$value} - #{$container-padding-x*2});
+    };
+  };
+}
+.modal-content {
+  pointer-events: none;
+  align-items: center;
+  justify-content: center;
+  display: none;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  margin: 0 auto;
+
+  // position: absolute;
+  // top: 0;
+  // right: 0;
+  // bottom: 0;
+  // left: 0;
+  // z-index: 1;
+  // overflow: hidden;
+
+  animation-fill-mode: forwards;
+  transform: scale(0);
+  background-color: color('light');
+  pointer-events: all;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  .modal-body {
+    padding: 2rem;
+    width: 100%;
+  }
+  &.show {
+    display: flex;
+    animation-name: modal-inner;
+    animation-duration: .3s;
+  }
+  &.transparent {
+    .modal-inner {
+      background-color: transparent;
+    }
+  }
+
+
+  grid-column-start: 1;
+  grid-column-end: $grid-columns+1;
+  @include make-breakpoints() using ($suffix) {
+    @for $i from 1 through $grid-columns {
+      &.size-#{$i}#{$suffix} {
+        $m: ($grid-columns/2)+1;
+        grid-column-start: $m - $i;
+        grid-column-end: $m + $i;
+      }
+    }
+  }
+}
+.modal-group {
+  display: none;
+  position: relative;
+  z-index: 1;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  &.show {
+    display: flex;
+  }
+
+}
+.modal-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(color('dark'), $opacity-overlay);
 }
 
 @keyframes modal-bg {

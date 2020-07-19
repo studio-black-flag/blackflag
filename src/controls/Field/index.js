@@ -78,6 +78,11 @@ Field.select = React.forwardRef((props, ref) => {
     <Field type="select" {...props} ref={ref} />
   )
 })
+Field.switch = React.forwardRef((props, ref) => {
+  return (
+    <Field type="switch" {...props} ref={ref} />
+  )
+})
 
 Field.defaultProps = {
   type: 'text'

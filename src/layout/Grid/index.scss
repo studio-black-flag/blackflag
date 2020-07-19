@@ -1,4 +1,3 @@
-
 .Grid {
 	display: grid;
 	grid-template-columns:repeat($grid-columns, 1fr);
@@ -19,7 +18,7 @@
 
 @include make-breakpoints() using ($suffix) {
 	@for $i from 1 through $grid-columns {
-	  .cell-#{$i}#{$suffix} {
+	  .cell-#{$i}#{$suffix}, .size-#{$i}#{$suffix} {
 	    grid-area: auto / span (abs($i));
 	  }
 	  .cell-start-#{$i}#{$suffix}, .start-#{$i}#{$suffix} {
