@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
 
 export default {
 	scrollToId: (id, offset=0) => {
@@ -29,10 +29,21 @@ export default {
 	},
 
  timeout: (callback, delay) => {
-		 let timer1 = setTimeout(() => callback(), delay)
+		 let timer = setTimeout(() => callback(), delay)
 		 return () => {
-			 clearTimeout(timer1)
+			 clearTimeout(timer)
 		 }
+	},
+
+ onWindowResize: (callback, states=[]) => {
+	 useLayoutEffect(() => {
+     function updateSize() {
+       callback(window.innerWidth, window.innerHeight);
+     }
+     window.addEventListener('resize', updateSize);
+     updateSize();
+     return () => window.removeEventListener('resize', updateSize);
+   }, states);
 	},
 
 	lerp: (start, end, amt) => {
@@ -50,3 +61,11 @@ export default {
 		document.body.appendChild(script);
 	}
 }
+
+
+
+// function useWindowSize() {
+//   const [size, setSize] = useState([0, 0]);
+//
+//   return size;
+// }
