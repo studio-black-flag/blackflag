@@ -1,0 +1,46 @@
+
+.Field-image {
+
+}
+.field-image-area {
+	@include aspect-ratio(1,1);
+	position: relative;
+	cursor: pointer;
+	border: 4px dashed color(dark, ui);
+	border-radius: 1rem;
+	overflow: hidden;
+	&.has-file {
+		border:0;
+	}
+	input, img {
+		all: unset;
+		// background: red;
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 100%;
+		height: 100%;
+	}
+	input {
+		opacity: 0;
+		z-index: 2;
+	}
+	img {
+		object-fit: cover;
+	}
+	.Button, span {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 1;
+	}
+	span {
+    transform: translate(-50%, -200%);
+	}
+	.field-image-remove {
+		top: auto;
+		bottom: 0;
+		z-index: 4;
+	}
+}
