@@ -11,9 +11,7 @@ const Modal = ({children, className, hide, show, ...props}) => {
 
 	return (
 		<div className={c} {...props}>
-			<div className="modal-container">
-				{children}
-			</div>
+      {children}
 			<div className="modal-bg"></div>
 		</div>
 	)

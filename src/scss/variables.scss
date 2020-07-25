@@ -63,6 +63,14 @@ $spaces:(
   7: $space * 10
 )!default;
 
+// MODAL
+$modal-sizes: (
+  1: $space * 40,
+  2: $space * 60,
+  3: $space * 80,
+  4: $space * 120,
+);
+
 // GRID
 $grid-gap: 16px !default;
 $grid-columns: 12 !default;

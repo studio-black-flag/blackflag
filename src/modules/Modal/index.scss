@@ -18,18 +18,7 @@
     }
   }
 }
-.modal-container {
-  display: grid;
-	grid-gap: $grid-gap;
-  grid-template-columns:repeat($grid-columns, 1fr);
-  margin: 0 auto;
-  width: 100%;
-  @each $name, $value in $container-max-widths {
-    @include media-breakpoint($name) {
-      max-width: calc(#{$value} - #{$container-padding-x*2});
-    };
-  };
-}
+
 .modal-header {
   min-height: space(5);
   width: 100%;
@@ -39,12 +28,14 @@
   border-bottom: 1px solid color(dark, ui);
   position: relative;
 }
+
 .modal-footer {
   padding: space(1);
   width: 100%;
   border-top: 1px solid color(dark, ui);
   position: relative;
 }
+
 .modal-close, .modal-close:hover {
   all:unset;
   position: absolute;
@@ -55,6 +46,7 @@
   align-items: center;
   cursor: pointer;
 }
+
 .modal-content {
   pointer-events: none;
   align-items: center;
@@ -88,30 +80,17 @@
     }
   }
 
-  grid-column-start: 1;
-  grid-column-end: $grid-columns+1;
+  margin: space(2);
+  max-width: map-get($modal-sizes, length($modal-sizes));
   @include make-breakpoints() using ($suffix) {
-    @for $i from 1 through $grid-columns {
-      &.size-#{$i}#{$suffix} {
-        $m: ($grid-columns/2)+1;
-        grid-column-start: $m - $i;
-        grid-column-end: $m + $i;
+    @each $name, $value in $modal-sizes {
+      &.size-#{$name}#{$suffix} {
+        max-width: $value;
       }
     }
   }
 }
-// .modal-group {
-//   display: none;
-//   position: relative;
-//   z-index: 1;
-//   align-items: center;
-//   justify-content: center;
-//   width: 100%;
-//   &.show {
-//     display: flex;
-//   }
-//
-// }
+
 .modal-bg {
   position: absolute;
   top: 0;
