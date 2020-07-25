@@ -1,5 +1,10 @@
 .Page {
   display: grid;
+  min-height: 100%;
+
+  &>main {
+    min-height: 100%;
+  }
   &.with-header {
     grid-template-rows: 60px 1fr;
   }

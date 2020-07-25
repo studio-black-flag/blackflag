@@ -34,11 +34,11 @@ Modal.content = ({children, className, hide, show, transparent, header, footer, 
 		(show?' show':'')
 
   utils.onWindowResize(function() {
-    if(headerRef.current && footerRef.current) {
+    if(headerRef.current) {
       let h = headerRef.current.offsetHeight
       h += parseInt(window.getComputedStyle(contentRef.current).getPropertyValue('margin-top'), 10)
       h += parseInt(window.getComputedStyle(contentRef.current).getPropertyValue('margin-bottom'), 10)
-      if(footerRef) {
+      if(footerRef.current) {
         h += footerRef.current.offsetHeight
       }
       setBodyHeight((window.innerHeight - h)+'px')
@@ -68,19 +68,5 @@ Modal.content = ({children, className, hide, show, transparent, header, footer, 
 Modal.content.defaultProps = {
   header: ''
 }
-
-// Modal.group = ({children, className, hide, show, ...props}) => {
-//   if (hide) return null
-// 	let c =
-// 		"modal-group" +
-// 		(className?' '+className:'') +
-// 		(show?' show':'')
-//
-// 	return (
-// 		<div className={c} {...props}>
-// 			{children}
-// 		</div>
-// 	)
-// };
 
 export { Modal };
