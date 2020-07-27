@@ -2,8 +2,13 @@
 	border-bottom: 1px solid color(dark, muted);
 	margin-bottom: space(3);
 	white-space: nowrap;
-	overflow-x: hidden;
+	overflow-x: auto;
 	overflow-y: hidden;
+	&::-webkit-scrollbar {
+	  display: none;
+	}
+	-ms-overflow-style: none;  /* IE and Edge */
+	scrollbar-width: none;  /* Firefox */	
 }
 .Tab {
 	padding: space(3) space(4);

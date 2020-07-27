@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import { useScrollBoost } from 'react-scrollbooster'
+import React, {useState, useEffect, useRef} from 'react';
+// import { useScrollBoost } from 'react-scrollbooster'
 
 const Tab = ({children, className, active, hide, ...props}) => {
   if (hide) return null
@@ -19,46 +19,45 @@ const Tab = ({children, className, active, hide, ...props}) => {
 const Tabs = ({children, className, hide, data, onChange, active, ...props}) => {
   if (hide) return null
 
-  const [viewport, scrollbooster] = useScrollBoost({
-    // direction: 'horizontal',
-    // friction: 0.2,
-    // scrollMode: 'native',
-    scrollMode: 'transform', // use CSS 'transform' property
-    direction: 'horizontal', // allow only horizontal scrolling
-    emulateScroll: true, // scroll on wheel events
-    // onClick: (state, event, isTouchDevice) => {
-    //   // prevent default link event
-    //   const isLink = event.target.nodeName.toLowerCase() === 'link';
-    //   if (isLink) {
-    //     event.preventDefault();
-    //   }
-    // }
-  });
+  const tabs = useRef()
+  const inner = useRef()
 
 	const [current, setCurrent] = useState(active || 0)
 
 	const onTabClick = (index) => {
-		setCurrent(index)
+		goToTab(index)
     if (onChange) {
       onChange(index)
     }
 	}
+
+  useEffect(() => {
+		setCurrent(active)
+  }, [active])
+
+  useEffect(() => {
+		goToTab(current)
+  }, [current])
+
+  const goToTab = (index) => {
+    let tab = inner.current.children[index]
+		setCurrent(index)
+    tabs.current.scrollTo({
+      left: tab.offsetLeft - (tabs.current.offsetWidth/2) + (tab.offsetWidth / 2),
+      behavior: 'smooth',
+    });
+  }
 
 	let c =
 		"Tabs" +
 		(className?' '+className:'')
 
 	let total = 0
-  const children2 = React.Children.toArray(children)
-  // const children2 = React.Children.toArray(children).filter((child, i) => {
-  //   return typeof child.props.children == 'object';
-  // });
-  //
-  // console.log("item", typeof React.Children.toArray(children))
+  const childrenArray = React.Children.toArray(children)
 
 	return (
-		<div className={c} {...props} ref={viewport}>
-  		<div>
+		<div className={c} {...props} ref={tabs}>
+  		<div ref={inner}>
   			{data &&
   				data.map(({children, className, ...item}, index) => {
   					++total
@@ -70,7 +69,7 @@ const Tabs = ({children, className, hide, data, onChange, active, ...props}) => 
   				})
   			}
   			{children &&
-  				children2.map((item, index) => {
+  				childrenArray.map((item, index) => {
             let tab = React.cloneElement(item, { onClick: () => onTabClick(index), active: (index==current ? true : false)})
             return (
               tab
