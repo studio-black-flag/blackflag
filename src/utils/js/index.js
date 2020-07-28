@@ -45,6 +45,16 @@ export default {
      return () => window.removeEventListener('resize', updateSize);
    }, states);
 	},
+ onWindowScroll: (callback, states=[]) => {
+	 useLayoutEffect(() => {
+     function updateScroll() {
+       callback(window.scrollX, window.scrollY);
+     }
+     window.addEventListener('scroll', updateScroll);
+     updateScroll();
+     return () => window.removeEventListener('scroll', updateScroll);
+   }, states);
+	},
 
 	lerp: (start, end, amt) => {
 		return (1-amt)*start+amt*end
