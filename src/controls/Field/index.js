@@ -57,7 +57,7 @@ const Field = React.forwardRef(({children, className, hide, onChange, error, id,
       {(children && type != "file" && type != "image") &&
         <label className="field-label" htmlFor={localId}>
           {children}
-          {(required && type != "radio" && type != "checkbox")?<span className="field-required-text">{typeof required == 'boolean' ? 'required': required}</span>:''}
+          {(required && type != "radio" && type != "checkbox")?<span className="field-required-text"></span>:''}
         </label>
       }
       {type != 'label' &&

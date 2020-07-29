@@ -1,6 +1,7 @@
 //CONFIG
 $enable-css-variables: false!default;
-$min-breakpoint-name: xs;
+$min-breakpoint-name: xs!default;
+$field-required-text: 'required'!default;
 
 // OPACITY
 $opacity-overlay:     0.8!default;

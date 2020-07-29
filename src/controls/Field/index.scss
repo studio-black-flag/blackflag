@@ -8,6 +8,9 @@
 		.field-required-text {
 			color: color('dark', 'muted');
 			margin-left: .3rem;
+			&:before {
+				content: $field-required-text;
+			}
 		}
 	}
 	input, textarea, select {
