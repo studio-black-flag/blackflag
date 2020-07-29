@@ -28,13 +28,16 @@ $props: (m:margin,p:padding);
   }
 
   .mx-auto#{$suffix} {
+    display: block;
     margin-left: auto!important;
     margin-right: auto!important;
   }
   .ml-auto#{$suffix} {
+    display: block;
     margin-left: auto!important;
   }
   .mr-auto#{$suffix} {
+    display: block;
     margin-right: auto!important;
   }
 }

@@ -61,7 +61,8 @@ $spaces:(
   4: $space * 4,
   5: $space * 6,
   6: $space * 8,
-  7: $space * 10
+  7: $space * 10,
+  8: $space * 14
 )!default;
 
 // MODAL
@@ -70,6 +71,16 @@ $modal-sizes: (
   2: $space * 60,
   3: $space * 80,
   4: $space * 120,
+);
+$sizes: (
+1: $space * 10,
+2: $space * 20,
+3: $space * 30,
+4: $space * 40,
+5: $space * 60,
+6: $space * 80,
+7: $space * 100,
+8: $space * 140
 );
 
 // GRID

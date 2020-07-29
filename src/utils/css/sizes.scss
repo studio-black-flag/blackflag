@@ -1,8 +1,22 @@
 @include make-breakpoints() using ($suffix) {
-	.full-height#{$suffix} {
-		min-height: 100%;
+
+	@each $name, $value in $sizes {
+		.size-#{$name}#{$suffix} {
+			max-width: $value;
+			width: 100%;
+		}
+		.size-y-#{$name}#{$suffix} {
+			max-height: $value;
+			width: 100%;
+		}
 	}
-	.full-width#{$suffix} {
+
+	.full#{$suffix} {
 		width: 100%;
 	}
+
+	.full-y#{$suffix} {
+		min-height: 100%;
+	}
+
 }
