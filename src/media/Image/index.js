@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Image = ({className, hide, ...props}) => {
+const Image = ({className, hide, src, ...props}) => {
   if (hide) return null
 
   let c = (
@@ -8,7 +8,9 @@ const Image = ({className, hide, ...props}) => {
     (className?' '+className:'')
   )
   return (
-    <img className={c} {...props}/>
+    <figure className={c} {...props}>
+      <img src={src}/>
+    </figure>
   );
 
 };

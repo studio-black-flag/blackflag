@@ -1,12 +1,8 @@
 import React, {Fragment, useState, useEffect, useRef } from 'react'
 import {Icon, Button} from '../../'
 
-const FieldImage = React.forwardRef(({onChange, label, type, multiple, max, ...props}, ref) => {
+const FieldImage = React.forwardRef(({onChange, label, type, multiple, max, value, ...props}, ref) => {
   const [file, setFile] = useState(null)
-
-  if(!ref) {
-    ref = useRef()
-  }
 
   const onInputFile = (e) => {
     let reader  = new FileReader();
@@ -20,6 +16,12 @@ const FieldImage = React.forwardRef(({onChange, label, type, multiple, max, ...p
   useEffect(() => {
     if (onChange) onChange(file)
   },[file])
+
+
+  if(!ref) ref = useRef()
+  useEffect(() => {
+    if (value) setFile(value)
+  },[])
 
   return (
     <div class={"field-image-area"+(file?' has-file':'')}>
