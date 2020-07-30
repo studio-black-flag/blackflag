@@ -1,0 +1,7 @@
+@include make-breakpoints() using ($suffix) {
+  @each $color, $value in $colors {
+   .bg-#{$color}#{$suffix} {
+      background-color: color($color);
+    }
+  }
+}
