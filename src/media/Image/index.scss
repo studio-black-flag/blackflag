@@ -6,7 +6,6 @@
 	}
 	&.squared, &.circled {
 		@include aspect-ratio(1,1);
-		position: relative;
 		img {
 			position: absolute;
 	    top: 0;
@@ -20,5 +19,11 @@
 	}
 	&.circled {
 		border-radius: 100%;
+		overflow: hidden;
+	}
+	&.full {
+		img {
+	    width: 100%;
+		}
 	}
 }
