@@ -1,6 +1,12 @@
 
 .Field-image {
-
+	&.disabled {
+		pointer-events: none;
+		opacity: $opacity-disabled;
+		.field-image-area input {
+			opacity: 0;
+		}
+	}
 }
 .field-image-area {
 	@include aspect-ratio(1,1);

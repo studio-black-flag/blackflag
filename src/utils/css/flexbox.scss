@@ -9,6 +9,10 @@
 		flex-direction: row;
 		display: flex;
 	}
+	.flex-column#{$suffix} {
+		flex-direction: column;
+		display: flex;
+	}
 	.flex-space-between#{$suffix} {
 		justify-content: space-between;
 		display: flex;

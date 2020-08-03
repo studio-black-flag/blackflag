@@ -18,6 +18,10 @@
 		display: flex!important;
 		// width: 100%!important;
 	}
+	.inline-flex#{$suffix} {
+		display: inline-flex!important;
+		// width: 100%!important;
+	}
 	.grid#{$suffix} {
 		display: grid!important;
 		// width: 100%!important;
