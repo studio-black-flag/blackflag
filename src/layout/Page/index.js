@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Page = ({children, className, hide, name, header, aside, footer, ...props}) => {
+const Page = ({children, className, hide, name, header, aside, footer, main, ...props}) => {
   if (hide) return null
 
   let c = (
@@ -20,14 +20,23 @@ const Page = ({children, className, hide, name, header, aside, footer, ...props}
       {header &&
         <header className="page-header">{header}</header>
       }
-      <main className="page-main">
-        {children}
-      </main>
+      {main &&
+        <main className="page-main">
+          {children}
+        </main>
+      }
+      {!main &&
+        children
+      }
       {footer &&
         <footer className="page-footer">{footer}</footer>
       }
     </div>
   );
 };
+
+Page.defaultProps = {
+  main: true
+}
 
 export { Page };

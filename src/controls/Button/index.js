@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Button = React.forwardRef(({children, className, hide, onClick, link, gtag, tag, ...props}, ref) => {
+const Button = React.forwardRef(({children, className, hide, onClick, link, gtag, loading, tag, ...props}, ref) => {
   if (hide) return null
 
   const { to, href, disabled } = props
@@ -17,7 +17,8 @@ const Button = React.forwardRef(({children, className, hide, onClick, link, gtag
   const c = (
     'Button'+
     (className?' '+className:'')+
-    (disabled?' disabled':'')
+    (disabled?' disabled':'') +
+    (loading?' loading':'')
   )
 
   let ButtonTag = 'button'

@@ -17,7 +17,7 @@ const Modal = ({children, className, hide, show, ...props}) => {
 	)
 };
 
-Modal.content = ({children, className, hide, show, transparent, header, footer, onClose, ...props}) => {
+Modal.content = ({children, className, hide, show, transparent, header, footer, onClose, disabled, ...props}) => {
   if (hide || !show) return null
 
   const contentRef = useRef()
@@ -49,7 +49,7 @@ Modal.content = ({children, className, hide, show, transparent, header, footer, 
 		<div className={c} {...props} ref={contentRef}>
       <div className="modal-header" ref={headerRef}>
         {header}
-        <Button className="modal-close" onClick={() => onClose(null)}>
+        <Button disabled={disabled} className="modal-close" onClick={() => onClose(null)}>
           <Icon name="close" />
         </Button>
       </div>

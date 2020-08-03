@@ -24,7 +24,7 @@ const FieldImage = React.forwardRef(({onChange, label, type, multiple, max, valu
   },[])
 
   return (
-    <div class={"field-image-area"+(file?' has-file':'')}>
+    <div className={"field-image-area"+(file?' has-file':'')}>
       <input accept={props.accept} type="file" onChange={e => onInputFile(e)}  {...props} ref={ref}/>
       {!file &&
         <Fragment>

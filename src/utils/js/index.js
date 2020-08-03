@@ -61,7 +61,8 @@ export default {
 	},
 
 	randomId: () => {
-	  return 'id' + new Date().getTime()
+	  // return 'id' + new Date().getTime()
+	  return 'id' + Math.random().toString(36).substr(2, 9)
 	},
 
 	createScriptTag: src => {

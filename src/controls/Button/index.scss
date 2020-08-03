@@ -37,6 +37,10 @@
     pointer-events: none;
     opacity: $opacity-disabled;
   }
+  &.loading {
+    pointer-events: none;
+    opacity: $opacity-disabled;
+  }
 
   &.circled {
     width: $button-size;
