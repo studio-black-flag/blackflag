@@ -42,10 +42,12 @@ const Tabs = ({children, className, hide, data, onChange, active, ...props}) => 
   const goToTab = (index) => {
     let tab = inner.current.children[index]
 		setCurrent(index)
-    tabs.current.scrollTo({
-      left: tab.offsetLeft - (tabs.current.offsetWidth/2) + (tab.offsetWidth / 2),
-      behavior: 'smooth',
-    });
+    if (tab) {
+      tabs.current.scrollTo({
+        left: tab.offsetLeft - (tabs.current.offsetWidth/2) + (tab.offsetWidth / 2),
+        behavior: 'smooth',
+      });
+    }
   }
 
 	let c =
