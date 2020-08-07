@@ -25,6 +25,25 @@ $props: (m:margin,p:padding);
         #{$prop}-left: $space !important;
       }
     }
+    @each $prefix, $prop in $props {
+      .#{$prefix}--#{$size}#{$suffix}  { #{$prop}: -$space !important; }
+      .#{$prefix}t--#{$size}#{$suffix} ,
+      .#{$prefix}y--#{$size}#{$suffix}  {
+        #{$prop}-top: -$space !important;
+      }
+      .#{$prefix}r--#{$size}#{$suffix} ,
+      .#{$prefix}x--#{$size}#{$suffix}  {
+        #{$prop}-right: -$space !important;
+      }
+      .#{$prefix}b--#{$size}#{$suffix} ,
+      .#{$prefix}y--#{$size}#{$suffix}  {
+        #{$prop}-bottom: -$space !important;
+      }
+      .#{$prefix}l--#{$size}#{$suffix} ,
+      .#{$prefix}x--#{$size}#{$suffix}  {
+        #{$prop}-left: -$space !important;
+      }
+    }
   }
 
   .mx-auto#{$suffix} {

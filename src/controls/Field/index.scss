@@ -8,6 +8,7 @@
 		.field-required-text {
 			color: color('dark', 'muted');
 			margin-left: .3rem;
+			font-size: $font-size * .8;
 			&:before {
 				content: $field-required-text;
 			}

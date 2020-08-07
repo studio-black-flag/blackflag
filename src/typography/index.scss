@@ -7,4 +7,4 @@ h1, h2, h3, h4, h5, h6, p
   line-height: $line-height;
 }
 
-small { font-size: $font-size * .85 }
+small, .small { font-size: $font-size * .8 }
