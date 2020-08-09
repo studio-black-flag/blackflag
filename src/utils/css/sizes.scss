@@ -18,5 +18,9 @@
 	.full-y#{$suffix} {
 		min-height: 100%;
 	}
+	
+	.width-auto#{$suffix} {
+		width: auto;
+	}
 
 }

@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+// import InputMask from 'react-input-mask';
 import { utils } from '../../'
 
 import {FieldDefault} from './Default'
@@ -10,10 +11,11 @@ import {FieldSwitch} from './Switch'
 import {FieldSelect} from './Select'
 import {FieldPassword} from './Password'
 import {FieldImage} from './Image'
+import {FieldCurrency} from './Currency'
 
 const Field = React.forwardRef(({children, className, hide, onChange, error, id, ...props}, ref) => {
   if (hide) return null
-  const { type, disabled, required, maxLength } = props
+  const { type, disabled, required, maxLength, mask } = props
 
   let localId
   if (id) {
@@ -50,7 +52,11 @@ const Field = React.forwardRef(({children, className, hide, onChange, error, id,
     case 'select':            FieldTag = FieldSelect; break;
     case 'password':          FieldTag = FieldPassword; break;
     case 'image':             FieldTag = FieldImage; break;
+    case 'currency':          FieldTag = FieldCurrency; break;
   }
+  // if (mask) {
+  //   FieldTag = InputMask
+  // }
 
   return (
     <div className={c}>

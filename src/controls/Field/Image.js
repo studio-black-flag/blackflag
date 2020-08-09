@@ -35,7 +35,7 @@ const FieldImage = React.forwardRef(({onChange, label, type, multiple, max, valu
       {file &&
         <Fragment>
           <img src={file} />
-          <Button className="circle field-image-remove" onClick={() => setFile(null)}><Icon name="close"/></Button>
+          <Button className="circle field-image-remove" onClick={() => setFile(null)}><Icon name="minus"/></Button>
         </Fragment>
       }
     </div>

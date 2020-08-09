@@ -27,6 +27,7 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
-    "react-scrollbooster": "^0.1.0"
+    "react-dom": "^16.13.1",
+    "react-number-format": "^4.4.1"
   }
 }
