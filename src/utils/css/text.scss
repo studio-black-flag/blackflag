@@ -5,6 +5,9 @@
   .text-center#{$suffix} {
     text-align: center;
   }
+  .text-left#{$suffix} {
+    text-align: left;
+  }
   .text-bold {
     font-weight: bold;
   }

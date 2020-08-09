@@ -32,4 +32,7 @@
 	.relative#{$suffix} {
 		position: relative!important;
 	}
+	.disabled#{$suffix} {
+		opacity: opacity(disabled);
+	}
 }
