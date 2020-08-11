@@ -28,6 +28,10 @@
 
   margin-bottom: $space;
 
+  .Spinner {
+    margin-right: space(1);
+  }
+
   &:hover {
     color: color('light');
     background-color: color('dark');
@@ -47,6 +51,10 @@
     padding: 0;
     border-radius: 100%;
     min-width: initial;
+
+    .Spinner {
+      margin-right: 0;
+    }
   }
   &.outline {
     border: 1px solid color('light');

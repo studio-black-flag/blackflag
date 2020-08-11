@@ -31,7 +31,7 @@ const Button = React.forwardRef(({children, className, hide, onClick, link, gtag
     <ButtonTag onClick={onButtonClick} className={c} {...props} ref={ref}>
       {loading ?
         <React.Fragment>
-          <Spinner className="mr-1"/> {loading}
+          <Spinner /> {loading}
         </React.Fragment>
         :
         children
