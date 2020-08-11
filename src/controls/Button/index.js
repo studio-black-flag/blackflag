@@ -1,4 +1,5 @@
 import React from 'react'
+import { Spinner } from "../../"
 
 const Button = React.forwardRef(({children, className, hide, onClick, link, gtag, loading, tag, ...props}, ref) => {
   if (hide) return null
@@ -27,7 +28,15 @@ const Button = React.forwardRef(({children, className, hide, onClick, link, gtag
   else if (href) ButtonTag = 'a'
 
   return (
-    <ButtonTag onClick={onButtonClick} className={c} {...props} ref={ref}>{children}</ButtonTag>
+    <ButtonTag onClick={onButtonClick} className={c} {...props} ref={ref}>
+      {loading ?
+        <React.Fragment>
+          <Spinner className="mr-1"/> {loading}
+        </React.Fragment>
+        :
+        children
+      }
+    </ButtonTag>
   );
 })
 

@@ -21,4 +21,5 @@ export { Wrapper } from "./layout/Wrapper";
 export { Card } from "./modules/Card";
 export { Modal } from "./modules/Modal";
 export { Progress } from "./modules/Progress";
+export { Spinner } from "./modules/Spinner";
 export { Tabs } from "./modules/Tabs";
