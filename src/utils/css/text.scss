@@ -14,6 +14,9 @@
   .text-normal#{$suffix} {
     font-weight: normal;
   }
+  .text-break-all#{$suffix} {
+    word-break: break-all;
+  }
   @each $color, $value in $colors {
    .text-#{$color}#{$suffix} {
       color: color($color);
