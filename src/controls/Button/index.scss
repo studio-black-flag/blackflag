@@ -39,11 +39,11 @@
 
   &.disabled, &:disabled {
     pointer-events: none;
-    opacity: $opacity-disabled;
+    opacity: opacity(disabled);
   }
   &.loading {
     pointer-events: none;
-    opacity: $opacity-disabled;
+    opacity: opacity(disabled);
   }
 
   &.circled {

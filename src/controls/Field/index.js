@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 // import InputMask from 'react-input-mask';
-import { utils } from '../../'
+import { utils, Spinner } from '../../'
 
 import {FieldDefault} from './Default'
 import {FieldRadio} from './Radio'
@@ -13,9 +13,9 @@ import {FieldPassword} from './Password'
 import {FieldImage} from './Image'
 import {FieldCurrency} from './Currency'
 
-const Field = React.forwardRef(({children, className, hide, onChange, error, id, ...props}, ref) => {
+const Field = React.forwardRef(({children, className, hide, onChange, error, loading, id, disabled, ...props}, ref) => {
   if (hide) return null
-  const { type, disabled, required, maxLength, mask } = props
+  const { type, required, maxLength, mask } = props
 
   let localId
   if (id) {
@@ -67,9 +67,14 @@ const Field = React.forwardRef(({children, className, hide, onChange, error, id,
         </label>
       }
       {type != 'label' &&
-        <FieldTag id={localId} onChange={(e) => onFieldChange(e)} {...props} ref={ref} label={children} />
+        <FieldTag disabled={disabled || loading} id={localId} onChange={(e) => onFieldChange(e)} {...props} ref={ref} label={children} />
       }
 
+      {loading &&
+        <span className="field-loading">
+          <Spinner />
+        </span>
+      }
       {maxLength &&
         <span className={"field-max-length"}>{(localValue?maxLength-localValue.length:maxLength)}</span>
       }

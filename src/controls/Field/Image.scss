@@ -2,7 +2,7 @@
 .Field-image {
 	&.disabled {
 		pointer-events: none;
-		opacity: $opacity-disabled;
+		opacity: opacity(disabled);
 		.field-image-area input {
 			opacity: 0;
 		}

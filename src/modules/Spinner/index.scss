@@ -8,10 +8,9 @@
 	font-size: 0.15em;
   position: relative;
   text-indent: -9999em;
-  border-top: 1.2em solid transparent;
-  border-right: 1.2em solid color(light);
-  border-bottom: 1.2em solid color(light);
-  border-left: 1.2em solid color(light);
+  border-width: 1.2em;
+  border-style: solid;
+  border-color: color(light) color(light) color(light) transparent;
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
   transform: translateZ(0);

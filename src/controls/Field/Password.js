@@ -6,10 +6,10 @@ const FieldPassword = React.forwardRef(({type, ...props}, ref) => {
   return (
     <React.Fragment>
       <input type={view?'text':'password'} {...props} ref={ref}/>
-      <Button onClick={() => setView(!view)}>
+      <span className="field-after" onClick={() => setView(!view)}>
         <Icon hide={!view} name="eye-closed"/>
         <Icon hide={view} name="eye"/>
-      </Button>
+      </span>
     </React.Fragment>
   );
 })
