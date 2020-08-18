@@ -22,22 +22,22 @@ const FieldImage = React.forwardRef(({onChange, label, type, multiple, max, valu
 
   if(!ref) ref = useRef()
   useEffect(() => {
-    if (value) setFile(value)
+    if (value) setBase64(value)
   },[])
 
   return (
-    <div className={"field-image-area"+(file?' has-file':'')}>
+    <div className={"field-image-area"+(base64?' has-file':'')}>
       <input accept={props.accept} type="file" onChange={e => onInputFile(e)}  {...props} ref={ref}/>
-      {!file &&
+      {!base64 &&
         <Fragment>
           <span>{label}</span>
           <Button><Icon name="upload"/></Button>
         </Fragment>
       }
-      {file &&
+      {base64 &&
         <Fragment>
           <img src={base64} />
-          <Button className="circle field-image-remove" onClick={() => setFile(null)}><Icon name="minus"/></Button>
+          <Button className="circle field-image-remove" onClick={() => {setFile(null); setBase64(null);}}><Icon name="minus"/></Button>
         </Fragment>
       }
     </div>
