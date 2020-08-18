@@ -85,7 +85,7 @@
   @include make-breakpoints() using ($suffix) {
     @each $name, $value in $modal-sizes {
       &.size-#{$name}#{$suffix} {
-        max-width: $value;
+        max-width: $value!important;
       }
     }
   }

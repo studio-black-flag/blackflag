@@ -2,12 +2,12 @@
 
 	@each $name, $value in $sizes {
 		.size-#{$name}#{$suffix} {
-			max-width: $value;
-			width: 100%;
+			max-width: $value!important;
+			width: 100%!important;
 		}
 		.size-y-#{$name}#{$suffix} {
-			max-height: $value;
-			width: 100%;
+			max-height: $value!important;
+			width: 100%!important;
 		}
 	}
 

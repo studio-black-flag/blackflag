@@ -35,7 +35,10 @@ Modal.content = ({children, className, hide, show, transparent, header, footer, 
 
   utils.onWindowResize(function() {
     if(headerRef.current) {
-      let h = headerRef.current.offsetHeight
+      let h = 0
+      if(headerRef.current) {
+        h += headerRef.current.offsetHeight
+      }
       h += parseInt(window.getComputedStyle(contentRef.current).getPropertyValue('margin-top'), 10)
       h += parseInt(window.getComputedStyle(contentRef.current).getPropertyValue('margin-bottom'), 10)
       if(footerRef.current) {
@@ -47,12 +50,14 @@ Modal.content = ({children, className, hide, show, transparent, header, footer, 
 
 	return (
 		<div className={c} {...props} ref={contentRef}>
-      <div className="modal-header" ref={headerRef}>
-        {header}
-        <Button disabled={disabled} className="modal-close" onClick={() => onClose(null)}>
-          <Icon name="close" />
-        </Button>
-      </div>
+      {header &&
+        <div className="modal-header" ref={headerRef}>
+          {header}
+          <Button disabled={disabled} className="modal-close" onClick={() => onClose(null)}>
+            <Icon name="close" />
+          </Button>
+        </div>
+      }
 			<div className="modal-body" style={{maxHeight:bodyHeight}}>
 				{children}
 			</div>
@@ -66,7 +71,7 @@ Modal.content = ({children, className, hide, show, transparent, header, footer, 
 };
 
 Modal.content.defaultProps = {
-  header: ''
+  header: ' '
 }
 
 export { Modal };

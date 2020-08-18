@@ -5,6 +5,12 @@
 		justify-content: center;
 		align-items: center;
 	}
+	.flex-right#{$suffix} {
+		display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+	}
 	.flex-justify-center#{$suffix} {
 		display: flex;
 		justify-content: center;

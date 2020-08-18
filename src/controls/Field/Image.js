@@ -3,18 +3,20 @@ import {Icon, Button} from '../../'
 
 const FieldImage = React.forwardRef(({onChange, label, type, multiple, max, value, ...props}, ref) => {
   const [file, setFile] = useState(null)
+  const [base64, setBase64] = useState(null)
 
   const onInputFile = (e) => {
     let reader  = new FileReader();
     reader.onloadend = function () {
-      setFile(reader.result)
+      setBase64(reader.result)
       ref.current.value = null
     }
+    setFile(e.target.files[0])
     reader.readAsDataURL(e.target.files[0]);
   }
 
   useEffect(() => {
-    if (onChange) onChange(file)
+    if (onChange) onChange(file, base64)
   },[file])
 
 
@@ -34,7 +36,7 @@ const FieldImage = React.forwardRef(({onChange, label, type, multiple, max, valu
       }
       {file &&
         <Fragment>
-          <img src={file} />
+          <img src={base64} />
           <Button className="circle field-image-remove" onClick={() => setFile(null)}><Icon name="minus"/></Button>
         </Fragment>
       }
