@@ -23,7 +23,7 @@
 		-webkit-appearance: none;
 		-moz-appearance: none;
 		appearance: none;
-		
+
 		outline: none;
 		color: color('dark');
 		width: 100%;
@@ -81,9 +81,11 @@
 	text-align: right;
 }
 
-// .Field-select {
-// 	width: 100%;
-// }
+.Field-select {
+	.arrow {
+
+	}
+}
 
 .Field-radio, .Field-checkbox {
 	display: flex;
@@ -220,7 +222,7 @@
   }
 }
 
-.Field-password {
+.Field-password, .Field-select {
 	position: relative;
 	.field-after {
 		all: unset;
@@ -229,7 +231,7 @@
 		right: 0;
 		right: 0;
     bottom: 0;
-    height: 42px;
+    height: 39px;
     width: 42px;
     display: flex;
     align-items: center;

@@ -16,12 +16,18 @@ const FieldImage = React.forwardRef(({onChange, label, type, multiple, max, valu
   }
 
   useEffect(() => {
-    if (onChange) onChange(file, base64)
+    if (onChange) onChange(file)
   },[file])
+
+  useEffect(() => {
+    console.log('value', value)
+    if (onChange) onChange(value)
+  },[])
 
 
   if(!ref) ref = useRef()
   useEffect(() => {
+    // console.log(value);
     if (value) setBase64(value)
   },[])
 
@@ -37,7 +43,7 @@ const FieldImage = React.forwardRef(({onChange, label, type, multiple, max, valu
       {base64 &&
         <Fragment>
           <img src={base64} />
-          <Button className="circle field-image-remove" onClick={() => {setFile(null); setBase64(null);}}><Icon name="minus"/></Button>
+          <Button className="circle field-image-remove" onClick={() => {setFile(null); setBase64(null); onChange(null);}}><Icon name="minus"/></Button>
         </Fragment>
       }
     </div>
