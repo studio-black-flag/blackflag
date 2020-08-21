@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 // import InputMask from 'react-input-mask';
 import { utils, Spinner } from '../../'
 
@@ -13,7 +13,7 @@ import {FieldPassword} from './Password'
 import {FieldImage} from './Image'
 import {FieldCurrency} from './Currency'
 
-const Field = React.forwardRef(({children, className, hide, onChange, error, loading, id, disabled, ...props}, ref) => {
+const Field = React.forwardRef(({children, className, hide, onChange, error, loading, id, disabled, focus, ...props}, ref) => {
   if (hide) return null
   const { type, required, maxLength, mask } = props
 
@@ -23,6 +23,16 @@ const Field = React.forwardRef(({children, className, hide, onChange, error, loa
   } else {
     localId = utils.randomId()
   }
+
+  if (!ref) {
+    ref = useRef()
+  }
+
+  useEffect(() => {
+    if (focus) {
+      ref.current.focus()
+    }
+  }, [])
 
   const [localValue, setLocalValue] = useState()
   function onFieldChange(e) {
