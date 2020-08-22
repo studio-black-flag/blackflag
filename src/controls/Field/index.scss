@@ -17,7 +17,25 @@
 	}
 	textarea {
 		resize: none;
-		overflow: hidden;
+		overflow-x: hidden;
+    max-height: 195px;
+    overflow-y: auto;
+    min-height: 76px;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #C7C7C7;
+      border-radius: 6px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background: color(primary);
+      cursor: pointer;
+    }
 	}
 	input, textarea, select {
 		-webkit-appearance: none;

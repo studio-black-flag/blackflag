@@ -7,7 +7,7 @@ const FieldTextarea = React.forwardRef((props, ref) => {
   const onLocalChange = e => {
     props.onChange(e)
     ref.current.style.height = 'auto'
-    ref.current.style.height = (ref.current.scrollHeight + 6) + 'px'
+    ref.current.style.height = ref.current.scrollHeight + 'px'
   }
   return (
     <textarea {...props} onChange={onLocalChange} ref={ref}>{props.value}</textarea>

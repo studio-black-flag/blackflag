@@ -17,6 +17,9 @@
   .text-break-all#{$suffix} {
     word-break: break-all;
   }
+  .text-break-spaces#{$suffix} {
+    white-space: break-spaces;
+  }
   @each $color, $value in $colors {
    .text-#{$color}#{$suffix} {
       color: color($color);
