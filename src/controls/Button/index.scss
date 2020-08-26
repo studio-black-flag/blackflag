@@ -30,6 +30,7 @@
 
   .Spinner {
     margin-right: space(1);
+    border-color: color(dark) color(dark) color(dark) transparent;
   }
 
   &:hover {
@@ -68,6 +69,9 @@
       border: 0;
       &:hover {
         background-color: color($color, 'hover');
+      }
+      .Spinner {
+        border-color: color($color, 'contrast') color($color, 'contrast') color($color, 'contrast') transparent;
       }
     }
     &.outline.#{$color} {

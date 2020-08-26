@@ -13,7 +13,7 @@ $opacities: (
   overlay:     0.8,
   muted:       0.4,
   disabled:    0.2,
-  ui:          0.08
+  ui:          0.14
 )!default;
 
 // FONT
@@ -74,14 +74,14 @@ $modal-sizes: (
   4: $space * 120,
 );
 $sizes: (
-1: $space * 10,
-2: $space * 20,
-3: $space * 30,
-4: $space * 40,
-5: $space * 60,
-6: $space * 80,
-7: $space * 100,
-8: $space * 140
+  1: $space * 10,
+  2: $space * 20,
+  3: $space * 30,
+  4: $space * 40,
+  5: $space * 60,
+  6: $space * 80,
+  7: $space * 100,
+  8: $space * 140
 );
 
 // GRID
