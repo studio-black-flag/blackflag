@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
 
+import smoothscroll from 'smoothscroll-polyfill';
+smoothscroll.polyfill();
+
 export default {
 	scrollToId: (id, offset=0) => {
-		window.scrollTo({
+		window.scroll({
 		  top: (document.getElementById(id).getBoundingClientRect().top - document.body.getBoundingClientRect().top) - offset,
 		  behavior: 'smooth'
 		});

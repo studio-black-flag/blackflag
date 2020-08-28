@@ -34,6 +34,12 @@ const Field = React.forwardRef(({children, className, hide, onChange, error, loa
     }
   }, [])
 
+  useEffect(() => {
+    if (loading === false) {
+      ref.current.focus()
+    }
+  }, [loading])
+
   const [localValue, setLocalValue] = useState()
   function onFieldChange(e) {
     if (e && e.target) {

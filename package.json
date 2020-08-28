@@ -1,6 +1,6 @@
 {
   "name": "blackflag",
-  "version": "0.0.2-beta.37",
+  "version": "0.0.2-beta.39",
   "description": "Black Flag",
   "author": "Marcelo Kohl",
   "license": "MIT",
@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "react-dom": "^16.13.1",
-    "react-number-format": "^4.4.1"
+    "react-number-format": "^4.4.1",
+    "smoothscroll-polyfill": "^0.4.4"
   }
 }

@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { Fragment, useEffect, useState, useRef, useImperativeHandle } from 'react'
+import { Container, utils } from '../../'
 
-const Page = ({children, className, hide, name, header, aside, footer, main, ...props}) => {
+const Page = React.forwardRef(({children, className, hide, name, header, aside, footer, main, ...props}, ref) => {
   if (hide) return null
 
   let c = (
@@ -11,9 +12,37 @@ const Page = ({children, className, hide, name, header, aside, footer, main, ...
     (aside?' with-aside':'') +
     (footer?' with-footer':'')
   )
+  const alertRef = useRef()
+  const [showAlert, setShowAlert] = useState(false)
+  const [alertHeight, setAlertHeight] = useState(0)
+
+  useImperativeHandle(ref, () => ({
+    alert: (data) => {
+      setShowAlert(data)
+      utils.timeout(() => {
+        console.log('alertRef', alertRef);
+        if (alertRef.current) {
+          setAlertHeight(alertRef.current.offsetHeight)
+        }
+      }, 10)
+      utils.timeout(() => {
+        setShowAlert(false)
+      }, 5000)
+    }
+  }))
 
   return (
-    <div className={c} {...props}>
+    <div className={c + (showAlert?' with-alert':'')} {...props}>
+      {showAlert &&
+        <div className="page-alert-container">
+          <div ref={alertRef} className={"page-alert " + showAlert.type}>
+            <Container center>
+              {showAlert.message}
+            </Container>
+          </div>
+          <div style={{height:`${alertHeight}px`}}></div>
+        </div>
+      }
       {aside &&
         <aside className="page-aside">{aside}</aside>
       }
@@ -33,7 +62,7 @@ const Page = ({children, className, hide, name, header, aside, footer, main, ...
       }
     </div>
   );
-};
+})
 
 Page.defaultProps = {
   main: true
