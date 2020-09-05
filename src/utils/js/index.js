@@ -6,7 +6,7 @@ smoothscroll.polyfill();
 export default {
 	scrollToId: (id, offset=0) => {
 		window.scroll({
-		  top: (document.getElementById(id).getBoundingClientRect().top - document.body.getBoundingClientRect().top) - offset,
+		  top: (document.getElementById(id).offsetTop - document.body.offsetTop) - offset,
 		  behavior: 'smooth'
 		});
 	},

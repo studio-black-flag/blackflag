@@ -80,6 +80,7 @@
 	}
 	&.disabled {
 		color: color('dark', 'muted');
+    pointer-events: none;
 	}
 }
 .field-error {

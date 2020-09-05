@@ -18,16 +18,22 @@ const Page = React.forwardRef(({children, className, hide, name, header, aside, 
 
   useImperativeHandle(ref, () => ({
     alert: (data) => {
-      setShowAlert(data)
-      utils.timeout(() => {
-        console.log('alertRef', alertRef);
-        if (alertRef.current) {
-          setAlertHeight(alertRef.current.offsetHeight)
+      if (data) {
+        setShowAlert(data)
+        utils.timeout(() => {
+          console.log('alertRef', alertRef);
+          if (alertRef.current) {
+            setAlertHeight(alertRef.current.offsetHeight)
+          }
+        }, 10)
+        if (data.delay != 0) {
+          utils.timeout(() => {
+            setShowAlert(false)
+          }, (data.delay?data.delay:5000))
         }
-      }, 10)
-      utils.timeout(() => {
+      } else {
         setShowAlert(false)
-      }, 5000)
+      }
     }
   }))
 
