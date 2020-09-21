@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react';
-// import InputMask from 'react-input-mask';
+import InputMask from 'react-input-mask';
 import { utils, Spinner } from '../../'
 
 import {FieldDefault} from './Default'
@@ -70,9 +70,9 @@ const Field = React.forwardRef(({children, className, hide, onChange, error, loa
     case 'image':             FieldTag = FieldImage; break;
     case 'currency':          FieldTag = FieldCurrency; break;
   }
-  // if (mask) {
-  //   FieldTag = InputMask
-  // }
+  if (mask) {
+    FieldTag = InputMask
+  }
 
   return (
     <div className={c}>
