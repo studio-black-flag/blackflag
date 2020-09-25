@@ -11,6 +11,7 @@ export { Image } from "./media/Image";
 
 // LAYOUT
 export { Container } from "./layout/Container";
+export { Divider } from "./layout/Divider";
 export { Ellipsis } from "./layout/Ellipsis";
 export { Grid } from "./layout/Grid";
 export { Page } from "./layout/Page";

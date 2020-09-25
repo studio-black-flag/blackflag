@@ -12,6 +12,8 @@ import {FieldSelect} from './Select'
 import {FieldPassword} from './Password'
 import {FieldImage} from './Image'
 import {FieldCurrency} from './Currency'
+import {FieldPhone} from './Phone'
+import {FieldSlug} from './Slug'
 
 const Field = React.forwardRef(({children, className, hide, onChange, error, loading, id, disabled, focus, ...props}, ref) => {
   if (hide) return null
@@ -69,6 +71,8 @@ const Field = React.forwardRef(({children, className, hide, onChange, error, loa
     case 'password':          FieldTag = FieldPassword; break;
     case 'image':             FieldTag = FieldImage; break;
     case 'currency':          FieldTag = FieldCurrency; break;
+    case 'phone':             FieldTag = FieldPhone; break;
+    case 'slug':              FieldTag = FieldSlug; break;
   }
   if (mask) {
     FieldTag = InputMask

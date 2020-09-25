@@ -44,7 +44,7 @@ const Tabs = ({children, className, hide, data, onChange, active, ...props}) => 
 		setCurrent(index)
     if (tab) {
       tabs.current.scrollTo({
-        left: tab.offsetLeft - (tabs.current.offsetWidth/2) + (tab.offsetWidth / 2),
+        left: tab.offsetLeft - (tabs.current.offsetWidth / 2) + (tab.offsetWidth / 2),
         behavior: 'smooth',
       });
     }

@@ -13,13 +13,14 @@
     h3 { font-size: $h3-size }
     h2 { font-size: $h2-size }
     h1 { font-size: $h1-size }
-
-    .h6 { font-size: $h6-size }
-    .h5 { font-size: $h5-size }
-    .h4 { font-size: $h4-size }
-    .h3 { font-size: $h3-size }
-    .h2 { font-size: $h2-size }
-    .h1 { font-size: $h1-size }
+    @include make-breakpoints() using ($suffix) {
+      .h6#{$suffix} { font-size: $h6-size }
+      .h5#{$suffix} { font-size: $h5-size }
+      .h4#{$suffix} { font-size: $h4-size }
+      .h3#{$suffix} { font-size: $h3-size }
+      .h2#{$suffix} { font-size: $h2-size }
+      .h1#{$suffix} { font-size: $h1-size }
+    }
   };
 };
 

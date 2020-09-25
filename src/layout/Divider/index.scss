@@ -1,0 +1,19 @@
+.Divider {
+  display: flex;
+  color: color(dark,muted);
+  line-height: 0.9em;
+  hr {
+    &:first-child {
+      margin-right: space(1);
+    }
+    &:last-child {
+      margin-left: space(1);
+    }
+  }
+}
+hr {
+	border:0;
+	height: 1px;
+	background-color: color(dark,ui);
+  width: 100%;
+}
