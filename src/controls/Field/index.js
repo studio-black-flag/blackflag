@@ -2,18 +2,19 @@ import React, {useState, useEffect, useRef} from 'react';
 import InputMask from 'react-input-mask';
 import { utils, Spinner } from '../../'
 
-import {FieldDefault} from './Default'
-import {FieldRadio} from './Radio'
-import {FieldTextarea} from './Textarea'
-import {FieldCheckbox} from './Checkbox'
-import {FieldFile} from './File'
-import {FieldSwitch} from './Switch'
-import {FieldSelect} from './Select'
-import {FieldPassword} from './Password'
-import {FieldImage} from './Image'
-import {FieldCurrency} from './Currency'
-import {FieldPhone} from './Phone'
-import {FieldSlug} from './Slug'
+import {FieldDefault}       from './Default'
+import {FieldRadio}         from './Radio'
+import {FieldTextarea}      from './Textarea'
+import {FieldCheckbox}      from './Checkbox'
+import {FieldFile}          from './File'
+import {FieldSwitch}        from './Switch'
+import {FieldSelect}        from './Select'
+import {FieldPassword}      from './Password'
+import {FieldImage}         from './Image'
+import {FieldCurrency}      from './Currency'
+import {FieldPhone}         from './Phone'
+import {FieldSlug}          from './Slug'
+import {FieldCep}           from './Cep'
 
 const Field = React.forwardRef(({children, className, hide, onChange, error, loading, id, disabled, focus, ...props}, ref) => {
   if (hide) return null
@@ -37,7 +38,8 @@ const Field = React.forwardRef(({children, className, hide, onChange, error, loa
   }, [])
 
   useEffect(() => {
-    if (loading === false) {
+    if (loading === false && ref.current && ref.current.focus) {
+      // console.log('ref.current',ref.current);
       ref.current.focus()
     }
   }, [loading])
@@ -73,6 +75,7 @@ const Field = React.forwardRef(({children, className, hide, onChange, error, loa
     case 'currency':          FieldTag = FieldCurrency; break;
     case 'phone':             FieldTag = FieldPhone; break;
     case 'slug':              FieldTag = FieldSlug; break;
+    case 'cep':               FieldTag = FieldCep; break;
   }
   if (mask) {
     FieldTag = InputMask
