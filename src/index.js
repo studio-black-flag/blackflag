@@ -8,6 +8,7 @@ export { Field } from "./controls/Field";
 // MEDIA
 export { Icon } from "./media/Icon";
 export { Image } from "./media/Image";
+export { Video } from "./media/Video";
 
 // LAYOUT
 export { Container } from "./layout/Container";

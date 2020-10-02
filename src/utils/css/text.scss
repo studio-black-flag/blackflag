@@ -1,15 +1,15 @@
 @include make-breakpoints() using ($suffix) {
-  .text-muted#{$suffix} {
-    color: color('dark', 'muted');
-  }
   .text-center#{$suffix} {
     text-align: center;
   }
   .text-left#{$suffix} {
     text-align: left;
   }
-  .text-bold {
+  .text-bold#{$suffix} {
     font-weight: bold;
+  }
+  .text-normal#{$suffix} {
+    font-weight: normal;
   }
   .text-normal#{$suffix} {
     font-weight: normal;
@@ -19,6 +19,13 @@
   }
   .text-break-spaces#{$suffix} {
     white-space: break-spaces;
+  }
+  .text-uppercase#{$suffix} {
+    text-transform: uppercase;
+  }
+  // COLORS
+  .text-muted#{$suffix} {
+    color: color('dark', 'muted');
   }
   @each $color, $value in $colors {
    .text-#{$color}#{$suffix} {
