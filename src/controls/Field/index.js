@@ -53,6 +53,11 @@ const Field = React.forwardRef(({children, className, hide, onChange, error, loa
       onChange(e)
     }
   }
+  useEffect(() => {
+    if (props.value) {
+      setLocalValue(props.value)
+    }
+  }, [props.value])
 
   const c = (
     (type?' Field-'+type:'Field')+

@@ -22,7 +22,6 @@ Modal.content = ({children, className, hide, show, transparent, header, footer, 
 
   const contentRef = useRef()
   const headerRef = useRef()
-  // const body = useRef()
   const footerRef = useRef()
 
   const [bodyHeight, setBodyHeight] = useState(0)
@@ -34,18 +33,18 @@ Modal.content = ({children, className, hide, show, transparent, header, footer, 
 		(show?' show':'')
 
   utils.onWindowResize(function() {
+    let h = 0
     if(headerRef.current) {
-      let h = 0
-      if(headerRef.current) {
-        h += headerRef.current.offsetHeight
-      }
+      h += headerRef.current.offsetHeight
+    }
+    if (contentRef.current) {
       h += parseInt(window.getComputedStyle(contentRef.current).getPropertyValue('margin-top'), 10)
       h += parseInt(window.getComputedStyle(contentRef.current).getPropertyValue('margin-bottom'), 10)
-      if(footerRef.current) {
-        h += footerRef.current.offsetHeight
-      }
-      setBodyHeight((window.innerHeight - h)+'px')
     }
+    if(footerRef.current) {
+      h += footerRef.current.offsetHeight
+    }
+    setBodyHeight((window.innerHeight - h)+'px')
   }, [show])
 
 	return (

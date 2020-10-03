@@ -1,6 +1,6 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
-const FieldSlug = React.forwardRef(({value, ...props}, ref) => {
+const FieldSlug = React.forwardRef(({value, onChange, ...props}, ref) => {
 
   const mask = text => {
     return text ? text.toString().toLowerCase()
@@ -9,9 +9,15 @@ const FieldSlug = React.forwardRef(({value, ...props}, ref) => {
       .replace(/\-\-+/g, '-')
       : ''
   }
-
+  // useEffect(() => {
+  //   if (ref.current) {
+  //     // console.log(ref.current);
+  //     // ref.current.onChange()
+  //   }
+  // }, [value])
   return (
     <input
+      onChange={onChange}
       value={mask(value)}
       ref={ref}
       {...props}
