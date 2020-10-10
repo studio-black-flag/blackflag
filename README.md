@@ -9,8 +9,12 @@ import { Button, Field } from 'blackflag'
 ```
 Usando um componente importado
 ```html
-<Button>Button</Button>
+<Button href="#">Button</Button>
 ```
+> Saída HTML
+> ```html
+> <a class="Button" href="#">Button</a>
+> ```
 
 ## Importando o SASS
 ```js
