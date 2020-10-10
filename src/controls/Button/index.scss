@@ -34,8 +34,10 @@
   }
 
   &:hover {
-    color: color('light');
-    background-color: color('dark');
+    @include media-breakpoint(md) {
+      color: color('light');
+      background-color: color('dark');
+    }
   }
 
   &.disabled, &:disabled {
@@ -68,7 +70,10 @@
       color: color($color, 'contrast');
       border: 0;
       &:hover {
-        background-color: color($color, 'hover');
+
+        @include media-breakpoint(md) {
+          background-color: color($color, 'hover');
+        }
       }
       .Spinner {
         border-color: color($color, 'contrast') color($color, 'contrast') color($color, 'contrast') transparent;

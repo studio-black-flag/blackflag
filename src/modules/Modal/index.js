@@ -18,7 +18,7 @@ const Modal = ({children, className, hide, show, ...props}) => {
 };
 
 Modal.content = ({children, className, hide, show, transparent, header, footer, onClose, disabled, ...props}) => {
-  if (hide || !show) return null
+  if (hide) return null
 
   const contentRef = useRef()
   const headerRef = useRef()

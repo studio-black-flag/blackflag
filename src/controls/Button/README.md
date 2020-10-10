@@ -9,31 +9,31 @@
 <Button href="http://archive.org" target="_blank">Botão href</Button>
 <Button to="/contact" link={Link}>Botão react-router-dom</Button>
 ```
-> Para o **botão react-router-dom**, use o atributo **to** junto com o atributo **link** com o componente **Link** do **react-router-dom** com o valor:
+> Para o **botão react-router-dom** funcionar, use o atributo **to** junto com o atributo **link** com o componente **Link** do **react-router-dom**, importando-o da seguinte maneira:
 ```js
 import { Link } from "react-router-dom";
 ```
 
 ## GTAG
-Como o Google Analitycs é algo muito usado em nossos projetos, pra facilitar adicionamos o atributo **gtag** nos botões, que chama o seguinte comando, caso o atributo **gtag** tenha algum valor:
+Como o Google Analitycs é algo muito usado em nossos projetos, para facilitar, adicionamos o atributo **gtag** no componente **Button**, que chama o seguinte comando caso o atributo **gtag** tenha algum valor:
 ```js
 if (window.gtag && gtag) {
   window.gtag('event', gtag)
 }
 ```
-Esse código verifica se exista a função do Google Analitycs no projeto (inserimos sempre no public/index.html) e chama o evento com o valor dado em **gtag**
+Esse código verifica se existe a função do Google Analitycs no projeto (inserimos sempre no public/index.html) e chama o evento com o valor dado em **gtag**. Preferimos dessa maneira ao invés de inserir módulos de terceiros.
+
 ```html
 <Button gtag="nome_do_evento_a_ser_registrado">Botão</Button>
 ```
 
-## Cores
+## Comportamentos
+### Loading
 ```jsx
-<Button>Botão</Button><br/>
-<Button className="primary">Botão</Button><br/>
-<Button className="success">Botão</Button><br/>
-<Button className="error">Botão</Button><br/>
-<Button className="dark">Botão</Button><br/>
-<Button className="light">Botão</Button><br/>
+<Button loading={true}>Botão</Button>
+<Button loading="Carregando...">Botão</Button>
 ```
-
-## SCSS
+### Disabled
+```jsx
+<Button disabled={true}>Botão</Button>
+```

@@ -4,17 +4,17 @@
   right: 0;
   bottom: 0;
   left: 0;
-  display: none;
   z-index: 100;
-  transition: .3s;
+  transition: .3s opacity;
   align-items: center;
   justify-content: center;
+  pointer-events: none;
+  display: block;
 
   &.show {
-    display: flex;
+    pointer-events: all;
     .modal-bg {
-      animation-name: modal-bg;
-      animation-duration: .3s;
+      opacity: 1;
     }
   }
 }
@@ -51,28 +51,33 @@
   pointer-events: none;
   align-items: center;
   justify-content: center;
-  display: none;
   position: relative;
   z-index: 1;
   width: 100%;
-  margin: space(6) auto;
+  margin: 0;
 
-  animation-fill-mode: forwards;
-  transform: scale(0);
   background-color: color('light');
   pointer-events: all;
-  border-radius: 4px;
-  display: flex;
-  flex-direction: column;
+  border-radius: 12px;
+  display: block;
+  transition: .3s;
+  opacity: 0;
+  pointer-events: none;
+
+  height: auto;
+  transform: translate(-50%, calc(-50% + 100px));
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  &.show {
+    pointer-events: all;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
   .modal-body {
     padding: space(2);
     width: 100%;
     overflow: auto;
-  }
-  &.show {
-    display: flex;
-    animation-name: modal-inner;
-    animation-duration: .3s;
   }
   &.transparent {
     .modal-inner {
@@ -80,13 +85,29 @@
     }
   }
 
-  margin: space(2);
   max-width: map-get($modal-sizes, length($modal-sizes));
   @include make-breakpoints() using ($suffix) {
     @each $name, $value in $modal-sizes {
       &.size-#{$name}#{$suffix} {
-        max-width: $value!important;
+        max-width: $value;
       }
+    }
+  }
+
+  @include media-breakpoint-max(md) {
+    height: auto;
+    align-self: flex-end;
+    border-radius: 12px 12px 0 0;
+    margin-bottom: 0;
+    max-width: 100%!important;
+    margin-top: space(2);
+    transform: translate(0, 100px)!important;
+    top: auto;
+    bottom: 0;
+    left: 0;
+
+    &.show {
+      transform: translate(0, 0)!important;
     }
   }
 }
@@ -97,7 +118,9 @@
   right: 0;
   bottom: 0;
   left: 0;
+  opacity: 0;
   background-color: rgba(color('dark'), opacity(overlay));
+  transition: .3s;
 }
 
 @keyframes modal-bg {

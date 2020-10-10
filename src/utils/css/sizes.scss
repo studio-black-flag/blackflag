@@ -2,17 +2,19 @@
 
 	@each $name, $value in $sizes {
 		.size-#{$name}#{$suffix} {
-			max-width: $value!important;
-			width: 100%!important;
+			max-width: $value;
+			width: 100%;
 		}
 		.size-y-#{$name}#{$suffix} {
-			max-height: $value!important;
-			width: 100%!important;
+			max-height: $value;
+			width: 100%;
 		}
 	}
 
 	.full#{$suffix} {
 		width: 100%!important;
+		max-width: initial;
+		min-width: initial;
 	}
 
 	.full-y#{$suffix} {
