@@ -10,9 +10,9 @@
 <Button to="/contact" link={Link}>Botão react-router-dom</Button>
 ```
 > Para o **botão react-router-dom** funcionar, use o atributo **to** junto com o atributo **link** com o componente **Link** do **react-router-dom**, importando-o da seguinte maneira:
-```js
-import { Link } from "react-router-dom";
-```
+> ```js
+> import { Link } from "react-router-dom";
+> ```
 
 ## GTAG
 Como o Google Analitycs é algo muito usado em nossos projetos, para facilitar, adicionamos o atributo **gtag** no componente **Button**, que chama o seguinte comando caso o atributo **gtag** tenha algum valor:

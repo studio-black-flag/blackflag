@@ -1,5 +1,5 @@
 # BlackFlag Theme
-> - Todos os componentes começam com letra maiúscula
+- Todos os componentes começam com letra maiúscula
 - As classes CSS dos componentes também são todos em letras maiúsculas.
 
 ## Importando os componentes
@@ -42,4 +42,4 @@ import 'blackflag/scss'
 - [Modal](/src/layout/Modal/README.md)
 - [Progress](/src/layout/Progress/README.md)
 - [Spinner](/src/layout/Spinner/README.md)
-- [Tabs](/src/layout/Tabs/README.md) 
+- [Tabs](/src/layout/Tabs/README.md)
