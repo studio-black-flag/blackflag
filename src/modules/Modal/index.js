@@ -4,6 +4,14 @@ import { Container, Button, Icon, utils } from "../../"
 const Modal = ({children, className, hide, show, ...props}) => {
   if (hide) return null
 
+  useEffect(() => {
+    if (show) {
+      document.documentElement.classList.add('hasModal');
+    } else {
+      document.documentElement.classList.remove('hasModal');
+    }
+  }, [show])
+
 	let c =
 		"Modal" +
 		(className?' '+className:'') +

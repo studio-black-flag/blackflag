@@ -1,6 +1,6 @@
 {
   "name": "blackflag",
-  "version": "0.0.2-beta.48",
+  "version": "0.0.2-beta.54",
   "description": "Black Flag",
   "author": "Marcelo Kohl",
   "license": "MIT",
@@ -20,15 +20,15 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.7.0",
-    "css-loader": "^2.1.1",
+    "css-loader": "^5.0.1",
     "mini-css-extract-plugin": "^0.7.0",
-    "node-sass": "npm:sass@^1.26.10",
+    "node-sass": "npm:sass@^1.29.0",
     "sass-loader": "^7.3.1",
     "webpack": "4.42.0",
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
-    "react-dom": "^16.13.1",
+    "react-dom": "^16.14.0",
     "react-input-mask": "^2.0.4",
     "react-number-format": "^4.4.1",
     "smoothscroll-polyfill": "^0.4.4"

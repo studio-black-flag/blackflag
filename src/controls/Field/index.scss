@@ -83,6 +83,9 @@
     pointer-events: none;
 	}
 }
+.field-footer {
+	display: flex;
+}
 .field-error {
 	margin: 0.2rem 0 0;
 }
@@ -95,7 +98,7 @@
 	}
 }
 .field-max-length {
-	margin: 0.2rem 0 0;
+	margin: 0.2rem 0 0 auto;
 	display: block;
 	text-align: right;
 }
@@ -255,5 +258,42 @@
     display: flex;
     align-items: center;
     justify-content: center;
+	}
+}
+
+.Field-color {
+	.field-colors {
+		display: flex;
+		input {
+			width: 24px;
+	    height: 24px;
+	    border-radius: 100%;
+	    border: 0;
+	    background-color: lightgray;
+			margin-top: space(1);
+			margin-right: space(2);
+			position: relative;
+			cursor: pointer;
+			// transition: .3s;
+			// background-size: 0px;
+
+			&:checked {
+				$p: -4px;
+				&:before {
+					content: "";
+					position: absolute;
+					left: $p;
+					top: $p;
+					right: $p;
+					bottom: $p;
+					border: 1px solid color(dark, disabled);
+					border-radius: 100%;
+				}
+				background-position: center;
+		    background-repeat: no-repeat;
+		    background-size: 13px;
+				background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNyIgaGVpZ2h0PSI1IiB2aWV3Qm94PSIwIDAgNyA1IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNNi41MTE0MyAwLjc1ODIwM0w1Ljc5MDMzIDAuMDM3MTA5NEwyLjMwNjc0IDMuNTI1NzhMMS4yMDk4NiAyLjQyODkxTDAuNDg4NzcgMy4xNDQ5MkwyLjMwNjc0IDQuOTYyODlMMi42NjIyMSA0LjYwMjM0TDYuNTExNDMgMC43NTgyMDNaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K")
+			}
+		}
 	}
 }

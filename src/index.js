@@ -1,3 +1,7 @@
+if (typeof window === 'undefined') {
+  global.window = {}
+}
+
 import utils from "./utils/js";
 export {utils}
 

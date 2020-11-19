@@ -15,8 +15,9 @@ import {FieldCurrency}      from './Currency'
 import {FieldPhone}         from './Phone'
 import {FieldSlug}          from './Slug'
 import {FieldCep}           from './Cep'
+import {FieldColor}         from './Color'
 
-const Field = React.forwardRef(({children, className, hide, onChange, error, loading, id, disabled, focus, ...props}, ref) => {
+const Field = React.forwardRef(({children, className, hide, onChange, error, loading, id, disabled, focus, maxLengthDisplay, ...props}, ref) => {
   if (hide) return null
   const { type, required, maxLength, mask } = props
 
@@ -81,6 +82,7 @@ const Field = React.forwardRef(({children, className, hide, onChange, error, loa
     case 'phone':             FieldTag = FieldPhone; break;
     case 'slug':              FieldTag = FieldSlug; break;
     case 'cep':               FieldTag = FieldCep; break;
+    case 'color':            FieldTag = FieldColor; break;
   }
   if (mask) {
     FieldTag = InputMask
@@ -103,13 +105,14 @@ const Field = React.forwardRef(({children, className, hide, onChange, error, loa
           <Spinner />
         </span>
       }
-      {maxLength &&
-        <span className={"field-max-length"}>{(localValue?maxLength-localValue.length:maxLength)}</span>
-      }
-
-      {error &&
-        <small className="field-error">{error}</small>
-      }
+      <div className="field-footer">
+        {error &&
+          <small className="field-error">{error}</small>
+        }
+        {(maxLength && maxLengthDisplay) &&
+          <span className={"field-max-length"}>{(localValue?maxLength-localValue.length:maxLength)}</span>
+        }
+      </div>
 		</div>
   );
 })

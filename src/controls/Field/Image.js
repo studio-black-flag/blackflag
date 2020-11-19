@@ -1,14 +1,16 @@
 import React, {Fragment, useState, useEffect, useRef } from 'react'
 import {Icon, Button} from '../../'
 
-const FieldImage = React.forwardRef(({onChange, label, type, multiple, max, value, ...props}, ref) => {
+const FieldImage = React.forwardRef(({onChange, label, type, multiple, max, value, crop, ...props}, ref) => {
   const [file, setFile] = useState(null)
   const [base64, setBase64] = useState(null)
 
   const onInputFile = (e) => {
     let reader  = new FileReader();
     reader.onloadend = function () {
-      setBase64(reader.result)
+      if (!crop) {
+        setBase64(reader.result)
+      }
       ref.current.value = null
     }
     setFile(e.target.files[0])
@@ -20,16 +22,20 @@ const FieldImage = React.forwardRef(({onChange, label, type, multiple, max, valu
   },[file])
 
   useEffect(() => {
-    console.log('value', value)
     if (onChange) onChange(value)
-  },[])
-
+  },[base64])
 
   if(!ref) ref = useRef()
   useEffect(() => {
-    // console.log(value);
-    if (value) setBase64(value)
-  },[])
+    if (value) {
+      setBase64(value)
+    }
+    else {
+      setFile(null);
+      setBase64(null);
+      onChange(null);
+    }
+  },[value])
 
   return (
     <div className={"field-image-area"+(base64?' has-file':'')}>
@@ -43,7 +49,7 @@ const FieldImage = React.forwardRef(({onChange, label, type, multiple, max, valu
       {base64 &&
         <Fragment>
           <img src={base64} />
-          <Button className="circle field-image-remove" onClick={() => {setFile(null); setBase64(null); onChange(null);}}><Icon name="minus"/></Button>
+          <Button className="circle field-image-remove" onClick={() => {setFile(null); setBase64(null); onChange("");}}><Icon name="minus"/></Button>
         </Fragment>
       }
     </div>
