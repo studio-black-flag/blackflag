@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useRef} from 'react';
-import InputMask from 'react-input-mask';
-import { utils, Spinner } from '../../'
+// import InputMask from 'react-input-mask';
+import { Spinner } from '../../modules/Spinner'
+import { utils } from '../../utils/js'
 
 import {FieldDefault}       from './Default'
 import {FieldRadio}         from './Radio'
@@ -84,9 +85,9 @@ const Field = React.forwardRef(({children, className, hide, onChange, error, loa
     case 'cep':               FieldTag = FieldCep; break;
     case 'color':            FieldTag = FieldColor; break;
   }
-  if (mask) {
-    FieldTag = InputMask
-  }
+  // if (mask) {
+  //   FieldTag = InputMask
+  // }
 
   return (
     <div className={c}>

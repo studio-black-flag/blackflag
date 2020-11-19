@@ -1,5 +1,6 @@
 import React from 'react'
-import { utils } from "../../"
+
+import { utils } from '../../utils/js'
 
 const Progress = ({children, className, hide, progress, ...props}) => {
   if (hide) return null

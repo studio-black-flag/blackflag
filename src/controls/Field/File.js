@@ -1,5 +1,7 @@
 import React, {Fragment, useState, useEffect } from 'react'
-import {Icon, Button} from '../../'
+
+import { Button } from '../../controls/Button'
+import { Icon } from '../../media/Icon'
 
 const FieldFile = React.forwardRef(({onChange, label, max, ...props}, ref) => {
   const [files, setFiles] = useState([])

@@ -2,6 +2,10 @@
 - Todos os componentes começam com letra maiúscula
 - As classes CSS dos componentes também são todos em letras maiúsculas.
 
+"react": "^16.0.0",
+"node-sass": "npm:sass"
+ yarn add node-sass@npm:sass --save-dev
+
 ## Importando os componentes
 No arquivo da sua página ReactJs
 ```js

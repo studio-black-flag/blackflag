@@ -1,5 +1,9 @@
 import React, { useRef, useEffect, useState, useLayoutEffect  } from 'react';
-import { Container, Button, Icon, utils } from "../../"
+
+import { Container } from "../../layout/Container"
+import { Button } from '../../controls/Button'
+import { Icon } from '../../media/Icon'
+import { utils } from '../../utils/js'
 
 const Modal = ({children, className, hide, show, ...props}) => {
   if (hide) return null

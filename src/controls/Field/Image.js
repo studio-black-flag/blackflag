@@ -1,5 +1,7 @@
 import React, {Fragment, useState, useEffect, useRef } from 'react'
-import {Icon, Button} from '../../'
+
+import { Button } from '../../controls/Button'
+import { Icon } from '../../media/Icon'
 
 const FieldImage = React.forwardRef(({onChange, label, type, multiple, max, value, crop, ...props}, ref) => {
   const [file, setFile] = useState(null)

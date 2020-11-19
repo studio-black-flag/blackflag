@@ -1,5 +1,7 @@
 import React from 'react'
-import { Icon, utils } from '../../'
+
+import { Icon } from '../../media/Icon'
+import { utils } from '../../utils/js'
 
 const FieldColor = React.forwardRef(({ value, options, label, onChange, ...props }, ref) => {
   let localName = utils.randomId()

@@ -1,5 +1,7 @@
 import React, { Fragment, useEffect, useState, useRef, useImperativeHandle } from 'react'
-import { Container, utils } from '../../'
+
+import { Container } from '../Container'
+import { utils } from '../../utils/js'
 
 const Page = React.forwardRef(({children, className, hide, name, header, aside, footer, main, ...props}, ref) => {
   if (hide) return null

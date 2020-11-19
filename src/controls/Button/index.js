@@ -1,7 +1,5 @@
 import React from 'react'
-import { Spinner } from "../../"
-
-import './index.scss'
+import { Spinner } from "../../modules/Spinner"
 
 const Button = React.forwardRef((
   {children, className, onClick, link, gtag, loading, tag, ...props},

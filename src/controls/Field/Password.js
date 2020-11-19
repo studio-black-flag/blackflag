@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
-import { Icon, Button } from '../../'
+
+import { Button } from '../../controls/Button'
+import { Icon } from '../../media/Icon'
 
 const FieldPassword = React.forwardRef(({type, ...props}, ref) => {
   const [view, setView] = useState(false)

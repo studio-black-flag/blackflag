@@ -1,5 +1,6 @@
 import React from 'react'
-import { Icon } from '../../'
+
+import { Icon } from '../../media/Icon'
 
 const FieldSelect = React.forwardRef(({ options, label, ...props }, ref) => {
   return (
