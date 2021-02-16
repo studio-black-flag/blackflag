@@ -1,5 +1,5 @@
 .Tabs {
-	border-bottom: 1px solid color(dark, muted);
+	border-bottom: 1px solid color('gray-dark');
 	margin-bottom: space(3);
 	white-space: nowrap;
 	overflow-x: auto;
@@ -13,7 +13,7 @@
 }
 .Tab {
 	padding: space(3) space(4);
-	color: color(dark, muted);
+	color: color('gray-dark');
 	display: inline-flex;
 	cursor: pointer;
 	font-weight: bold;

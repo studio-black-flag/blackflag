@@ -3,7 +3,11 @@ import React, { Fragment, useEffect, useState, useRef, useImperativeHandle } fro
 import { Container } from '../Container'
 import { utils } from '../../utils/js'
 
-const Page = React.forwardRef(({children, className, hide, name, header, aside, footer, main, ...props}, ref) => {
+const Page = React.forwardRef((
+  {children, className, hide, name, header, aside, footer, main, ...props},
+  ref
+) => {
+
   if (hide) return null
 
   let c = (
@@ -14,6 +18,7 @@ const Page = React.forwardRef(({children, className, hide, name, header, aside, 
     (aside?' with-aside':'') +
     (footer?' with-footer':'')
   )
+
   const alertRef = useRef()
   const [showAlert, setShowAlert] = useState(false)
   const [alertHeight, setAlertHeight] = useState(0)

@@ -3,9 +3,11 @@
 ## Variables
 ```scss
 // OPACITY
-$opacity-overlay: 0.8!default;
-$opacity-muted: 0.4!default;
-$opacity-disabled: 0.2!default;
+$opacities: (
+  overlay:     0.8,
+  disabled:    0.2,
+  ui:          0.14
+);
 
 // FONT
 $font-family: 'Montserrat', sans-serif !default;

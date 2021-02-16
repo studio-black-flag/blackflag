@@ -12,7 +12,7 @@
 	@include aspect-ratio(1,1);
 	position: relative;
 	cursor: pointer;
-	border: 4px dashed color(dark, ui);
+	border: 4px dashed color('gray-light');
 	border-radius: 1rem;
 	overflow: hidden;
 	&.has-file {

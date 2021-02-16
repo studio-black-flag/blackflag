@@ -25,14 +25,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 1px solid color(dark, ui);
+  border-bottom: 1px solid color('gray-light');
   position: relative;
 }
 
 .modal-footer {
   padding: space(2);
   width: 100%;
-  border-top: 1px solid color(dark, ui);
+  border-top: 1px solid color('gray-light');
   position: relative;
 }
 

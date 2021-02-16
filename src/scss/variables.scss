@@ -3,15 +3,27 @@ $enable-css-variables: false!default;
 $min-breakpoint-name: xs!default;
 $field-required-text: 'required'!default;
 
-// OPACITY
-// $opacity-overlay:     0.8!default;
-// $opacity-muted:       0.4!default;
-// $opacity-disabled:    0.2!default;
-// $opacity-ui:          0.05!default;
+// COLORS
+$colors: (
+  dark:               #333,
+  gray-darker:        #656565,
+  gray-dark:          #ADADAD,
+  gray:               #8D8D8D,
+  gray-light:         #D2D2D2,
+  gray-lighter:       #EFEFEF,
+  light:              #fff,
+
+  primary:            #5F2EFF,
+  error:              #FF5345,
+  success:            #0AB253,
+
+  whatsapp:           #25D366,
+  twitter:            #1DA1F2,
+  facebook:           #1876F2,
+)!default;
 
 $opacities: (
   overlay:     0.8,
-  muted:       0.4,
   disabled:    0.2,
   ui:          0.14
 )!default;
@@ -30,8 +42,9 @@ $font-scales: (
 $line-height: 1.2em !default;
 
 // BUTTON
-$button-size: 42px;
-$button-min-width: 160px;
+$button-size: 42px!default;
+$button-min-width: 160px!default;
+$button-colors: 'dark', 'primary', 'whatsapp', 'facebook'!default;
 
 // CONTAINER
 $container-padding-x: 2rem!default;
@@ -72,37 +85,9 @@ $modal-sizes: (
   2: $space * 60,
   3: $space * 80,
   4: $space * 120,
-);
-$sizes: (
-  1: $space * 10,
-  2: $space * 20,
-  3: $space * 30,
-  4: $space * 40,
-  5: $space * 60,
-  6: $space * 80,
-  7: $space * 100,
-  8: $space * 140
-);
+)!default;
 
 // GRID
 $grid-gap: 16px !default;
 $grid-columns: 12 !default;
 $grid-rows: 10 !default;
-
-// COLORS
-$color-dark:              #333 !default;
-$color-light:             #fff !default;
-$color-primary:           #5F2EFF !default;
-$color-error:             #FF5345 !default;
-$color-success:           #0AB253 !default;
-$colors: (
-  'dark':               $color-dark,
-  'light':              $color-light,
-  'primary':            $color-primary,
-  'error':              $color-error,
-  'success':            $color-success
-)!default;
-
-$colors-brands: (
-  'whatsapp':               #25D366,
-)!default;

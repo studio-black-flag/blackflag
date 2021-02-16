@@ -1,38 +1,4 @@
-@function color($color, $state:false) {
-  @if $state {
-    @if $enable-css-variables { @return var(--color-#{$color}-#{$state}); }
-    @else { @return color-state($color, $state); }
-  }
-  @else {
+@function color($color) {
     @if $enable-css-variables { @return var(--color-#{$color}); }
     @else { @return map-get($colors, $color); }
-  }
 };
-
-@function color-state($color, $state) {
-  @return map-get((
-    'muted':    rgba(map-get($colors, $color), opacity(muted)),
-    'disabled': rgba(map-get($colors, $color), opacity(disabled)),
-    'ui': rgba(map-get($colors, $color), opacity(ui)),
-    'hover':    mix(map-get($colors, $color), map-get($colors, 'dark'), 70),
-    'contrast':  color-contrast(map-get($colors, $color))
-  ), $state);
-};
-
-@function color-contrast($color) {
-  $r: red($color);
-  $g: green($color);
-  $b: blue($color);
-
-  $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
-
-  @if ($yiq >= 200) {
-    @return $color-dark;
-  } @else {
-    @return $color-light;
-  }
-}
-
-@function color-brand($name) {
-  @return map-get($colors-brands, $name);
-}

@@ -22,7 +22,7 @@
   }
   // COLORS
   .text-muted#{$suffix} {
-    color: color('dark', 'muted');
+    color: color('gray-dark');
   }
   @each $color, $value in $colors {
    .text-#{$color}#{$suffix} {

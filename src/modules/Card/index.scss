@@ -3,19 +3,19 @@
 	// align-items: center;
 	// overflow: hidden;
   border-radius: 1rem;
-	border: 1px solid color(dark, ui);
+	border: 1px solid color('gray-light');
   &.disabled {
     opacity: opacity(disabled);
   }
 }
 .card-header {
   padding: space(2);
-  border-bottom: 1px solid color(dark, ui);
+  border-bottom: 1px solid color('gray-light');
 }
 .card-body {
   padding: space(2);
 }
 .card-footer {
   padding: space(2);
-  border-top: 1px solid color(dark, ui);
+  border-top: 1px solid color('gray-light');
 }

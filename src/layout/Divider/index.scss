@@ -1,6 +1,6 @@
 .Divider {
   display: flex;
-  color: color(dark,muted);
+  color: color('gray-dark');
   line-height: 0.9em;
   hr {
     &:first-child {
@@ -14,6 +14,6 @@
 hr {
 	border:0;
 	height: 1px;
-	background-color: color(dark,ui);
+	background-color: color('gray-lighter');
   width: 100%;
 }

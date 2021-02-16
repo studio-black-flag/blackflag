@@ -1,8 +1,7 @@
 $progress-height: 6px;
 $progress-border-radius: $progress-height;
-$progress-background-color: color('dark', 'disabled'); // problema com o rgba e o map-get, não recohece cor
-// $progress-background-color: rgba($color-dark, map-get($emphasis, 'disabled'));
-$progress-bar-background-color: $color-primary;
+$progress-background-color: color('gray-light'); // problema com o rgba e o map-get, não recohece cor
+$progress-bar-background-color: color('primary');
 
 .Progress {
 	height: $progress-height;
