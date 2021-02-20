@@ -21,6 +21,22 @@
       width: 100%;
     }
   }
+  &.loading {
+    &:after {
+      content: 'loading...';
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: color(dark);
+      opacity: opacity(overlay);
+      color: color(light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
   .page-alert {
     padding-top: space(3);
     padding-bottom: space(3);

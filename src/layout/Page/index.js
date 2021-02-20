@@ -4,7 +4,7 @@ import { Container } from '../Container'
 import { utils } from '../../utils/js'
 
 const Page = React.forwardRef((
-  {children, className, hide, name, header, aside, footer, main, ...props},
+  {children, className, hide, name, header, aside, footer, main, loading, ...props},
   ref
 ) => {
 
@@ -14,6 +14,7 @@ const Page = React.forwardRef((
     'Page'+
     (className?' '+className:'') +
     (name?' page-'+name:'') +
+    (loading?' loading':'') +
     (header?' with-header':'') +
     (aside?' with-aside':'') +
     (footer?' with-footer':'')
