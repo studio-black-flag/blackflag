@@ -1,7 +1,8 @@
+//
 @function get-breakpoint($name) {
   @return map-get($breakpoints, $name);
 }
-
+//
 @mixin media-breakpoint($name) {
   @if $min-breakpoint-name == $name {
     @content;
@@ -16,6 +17,7 @@
     @content;
   }
 }
+//
 
 @mixin make-breakpoints() {
   @content('');
@@ -23,8 +25,12 @@
     @include media-breakpoint($breakpoint) {
       @content(_#{$breakpoint});
     };
+    @include media-breakpoint-max($breakpoint) {
+      @content(_#{$breakpoint}-max);
+    };
   }
 }
+//
 @mixin loop-breakpoints() {
   @content('');
   @each $breakpoint, $value in $breakpoints {

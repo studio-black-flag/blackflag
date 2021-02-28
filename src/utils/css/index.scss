@@ -2,6 +2,7 @@
 @import 'display';
 @import 'flexbox';
 @import 'spaces';
+@import 'sizes';
 @import 'text';
 
 @include make-breakpoints() using ($suffix) {

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 
 const Divider = ({children, className, lines, tag, hide, ...props}) => {
   if (hide) return null
@@ -9,7 +9,8 @@ const Divider = ({children, className, lines, tag, hide, ...props}) => {
   )
   return (
     <div className={c}>
-      <hr/>{children}<hr/>
+      {children && <Fragment><hr/>{children}<hr/></Fragment> }
+      {!children && <hr/> }
     </div>
   );
 };
