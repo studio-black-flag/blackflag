@@ -1,6 +1,7 @@
 //CONFIG
 $enable-css-variables: false!default;
 $min-breakpoint-name: xs!default;
+$max-breakpoint-name: xl!default;
 $field-required-text: 'required'!default;
 
 // COLORS
@@ -78,6 +79,19 @@ $spaces:(
   7: $space * 10,
   8: $space * 14
 )!default;
+
+// WIDTH
+// $width-sizes: (
+//   1: $space,
+//   2: $space * 2,
+//   3: $space * 3,
+//   4: $space * 4,
+//   5: $space * 6,
+//   6: $space * 8,
+//   7: $space * 10,
+//   8: $space * 14
+// )!default;
+
 
 // MODAL
 $modal-sizes: (

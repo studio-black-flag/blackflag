@@ -17,6 +17,7 @@ import {FieldPhone}         from './Phone'
 import {FieldSlug}          from './Slug'
 import {FieldCep}           from './Cep'
 import {FieldColor}         from './Color'
+import {FieldDate}          from './Date'
 
 const Field = React.forwardRef(({children, className, hide, onChange, error, loading, id, disabled, focus, maxLengthDisplay, ...props}, ref) => {
   if (hide) return null
@@ -83,7 +84,8 @@ const Field = React.forwardRef(({children, className, hide, onChange, error, loa
     case 'phone':             FieldTag = FieldPhone; break;
     case 'slug':              FieldTag = FieldSlug; break;
     case 'cep':               FieldTag = FieldCep; break;
-    case 'color':            FieldTag = FieldColor; break;
+    case 'color':             FieldTag = FieldColor; break;
+    case 'date':              FieldTag = FieldDate; break;
   }
   // if (mask) {
   //   FieldTag = InputMask

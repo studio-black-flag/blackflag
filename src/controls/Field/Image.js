@@ -3,7 +3,7 @@ import React, {Fragment, useState, useEffect, useRef } from 'react'
 import { Button } from '../../controls/Button'
 import { Icon } from '../../media/Icon'
 
-const FieldImage = React.forwardRef(({onChange, label, type, multiple, max, value, crop, ...props}, ref) => {
+const FieldImage = React.forwardRef(({onChange, label, labelRemove, type, multiple, max, value, crop, ...props}, ref) => {
   const [file, setFile] = useState(null)
   const [base64, setBase64] = useState(null)
 
@@ -40,26 +40,31 @@ const FieldImage = React.forwardRef(({onChange, label, type, multiple, max, valu
   },[value])
 
   return (
-    <div className={"field-image-area"+(base64?' has-file':'')}>
+    <div className={"field-image-content"+(base64?' has-file':'')}>
       <input accept={props.accept} type="file" onChange={e => onInputFile(e)}  {...props} ref={ref}/>
-      {!base64 &&
-        <Fragment>
-          <span>{label}</span>
-          <Button><Icon name="upload"/></Button>
-        </Fragment>
-      }
-      {base64 &&
-        <Fragment>
-          <img src={base64} />
-          <Button className="circle field-image-remove" onClick={() => {setFile(null); setBase64(null); onChange("");}}><Icon name="minus"/></Button>
-        </Fragment>
-      }
+      <div className="field-image-area">
+        {base64 && <img src={base64} /> }
+      </div>
+        {!base64 &&
+          <div class="field-image-actions">
+            <a><Icon name="add-picture"/> <span>{label}</span> </a>
+          </div>
+        }
+        {base64 &&
+          <div class="field-image-actions">
+            <a onClick={() => {setFile(null); setBase64(null); onChange("");}}>
+              <Icon name="minus-circled"/> <span>{labelRemove}</span>
+            </a>
+          </div>
+        }
     </div>
   );
 })
 
 FieldImage.defaultProps = {
-   accept: "image/x-png,image/jpeg"
+   accept: "image/x-png,image/jpeg",
+   label: "Enviar foto",
+   labelRemove: "Remover foto",
 }
 
 export { FieldImage };

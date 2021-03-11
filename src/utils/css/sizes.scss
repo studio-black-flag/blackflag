@@ -1,31 +1,30 @@
 @include make-breakpoints() using ($suffix) {
-
-    // @each $name, $value in $sizes {
-    //     .size-#{$name}#{$suffix} {
-    //         max-width: $value;
-    //         width: 100%;
-    //     }
-    //     .size-y-#{$name}#{$suffix} {
-    //         max-height: $value;
+    // @each $name, $width in $width-sizes {
+    //     .width-#{$name}#{$suffix} {
+    //         max-width: $width;
     //         width: 100%;
     //     }
     // }
+    .width-full#{$suffix} {
+        width: 100%!important;
+        max-width: initial;
+        min-width: initial;
+    }
+    .width-auto#{$suffix} {
+        width: auto!important;
+    }
+    .min-width-auto {
+        min-width: auto!important;
+    }
+
 
     .full#{$suffix} {
         width: 100%!important;
         max-width: initial;
         min-width: initial;
     }
-
     .full-y#{$suffix} {
         min-height: 100%!important;
-    }
-
-    .width-auto#{$suffix} {
-        width: auto!important;
-    }
-    .min-width-auto {
-        min-width: auto!important;
     }
 
 }
