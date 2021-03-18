@@ -1,0 +1,18 @@
+.Pagination {
+  // margin-top: space-size(lg);
+  .Button, span {
+    color: color(dark);
+		background: transparent;
+    border: 0;
+    padding: 0.5em;
+    margin: 0 0.5em;
+    min-width: fit-content;
+    padding: space(1);
+    min-height: fit-content;
+    height: auto;
+    &.active {
+      background-color: color(primary);
+      color: color(dark);
+    }
+  }
+}

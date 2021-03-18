@@ -13,8 +13,13 @@
 			overflow: hidden;
 		}
 	}
+
+	.reactEasyCrop_Container {
+		z-index: 30;
+	}
 }
 .field-image-content {
+	position: relative;
 	input, img {
 		all: unset;
 		cursor: pointer;
@@ -42,6 +47,18 @@
 				pointer-events: all;
 			}
 		}
+	}
+}
+.field-image-cropper {
+	position: relative;
+	height: 200px;
+}
+.field-image-crop-actions {
+	display: flex;
+  justify-content: space-between;
+	margin-top: space(2);
+	.Button {
+		min-width: calc(50% - 8px);
 	}
 }
 .field-image-actions {

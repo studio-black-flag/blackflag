@@ -25,3 +25,4 @@ export { Modal } from "./modules/Modal";
 export { Progress } from "./modules/Progress";
 export { Spinner } from "./modules/Spinner";
 export { Tabs } from "./modules/Tabs";
+export { Pagination } from "./modules/Pagination";
