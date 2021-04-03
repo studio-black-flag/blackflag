@@ -1,107 +1,85 @@
 import React, {Fragment, useState, useEffect, useRef, useCallback } from 'react'
-import Cropper from 'react-easy-crop'
-import getCroppedImg from '../../utils/js/cropImage'
-
 import { Button } from '../../controls/Button'
 import { Icon } from '../../media/Icon'
 
-const FieldImage = React.forwardRef(({onChange, label, labelRemove, value, accept, type, resize, cropShape, ...props}, ref) => {
-  const [valueImage, setValueImage] = useState(null)
-  const [tempImage, setTempImage] = useState(null)
-  const [finalImage, setFinalImage] = useState(null)
+const FieldImage = React.forwardRef(({onChange, label, labelRemove, value, accept, maxWidth, maxHeight, type, resize, cropShape, aspect, ...props}, ref) => {
+  const [valueImage, setValueImage] = useState("")
 
   if(!ref) ref = useRef()
+
+  const resizeImage = (base64Str) => {
+    return new Promise((resolve) => {
+      let img = new Image()
+      img.src = base64Str
+      img.onload = () => {
+        let canvas = document.createElement('canvas')
+        const MAX_WIDTH = maxWidth
+        const MAX_HEIGHT = maxHeight
+        let width = img.width
+        let height = img.height
+
+        if (width > height) {
+          if (width > MAX_WIDTH) {
+            height *= MAX_WIDTH / width
+            width = MAX_WIDTH
+          }
+        } else {
+          if (height > MAX_HEIGHT) {
+            width *= MAX_HEIGHT / height
+            height = MAX_HEIGHT
+          }
+        }
+        canvas.width = width
+        canvas.height = height
+        let ctx = canvas.getContext('2d')
+        ctx.drawImage(img, 0, 0, width, height)
+        resolve(canvas.toDataURL())
+      }
+    })
+  }
 
   const onInputFile = (e) => {
     let reader  = new FileReader();
     reader.onloadend = function () {
-      setTempImage(reader.result)
+      setResizeImage(reader.result)
     }
     reader.readAsDataURL(e.target.files[0]);
   }
 
   useEffect(() => {
-    console.log("value: ",value);
     if (value) {
       setValueImage(value)
-    } else {
-      setFinalImage(null);
-      setTempImage(null);
-      onChange(null);
     }
   },[value])
 
-  // CROP
-  const [crop, setCrop] = useState({ x: 0, y: 0 })
-  const [rotation, setRotation] = useState(0)
-  const [zoom, setZoom] = useState(1)
-  const [croppedAreaPixels, setCroppedAreaPixels] = useState(null)
-  const [croppedImage, setCroppedImage] = useState(null)
-
-  const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
-    setCroppedAreaPixels(croppedAreaPixels)
-  }, [])
-
-  const showCroppedImage = useCallback(async () => {
+  const setResizeImage = useCallback(async image => {
     try {
-      const croppedImage = await getCroppedImg(
-        tempImage,
-        croppedAreaPixels,
-        rotation,
-        resize
-      )
-      if (onChange) onChange(croppedImage)
-      setFinalImage(croppedImage)
-      setTempImage(null)
-
+      const result = await resizeImage(image);
+      setValueImage(result);
+      if (onChange) onChange(result)
     } catch (e) {
       console.error(e)
     }
-  }, [croppedAreaPixels, rotation])
+  }, [])
 
   return (
-    <div className={"field-image-content"+(finalImage?' has-file':'')}>
-    {tempImage &&
-      <div className="field-image-crop">
-        <div  className="field-image-cropper">
-          <Cropper
-            image={tempImage}
-            crop={crop}
-            zoom={zoom}
-            aspect={1 / 1}
-            cropShape={cropShape}
-            onCropChange={setCrop}
-            onCropComplete={onCropComplete}
-            onZoomChange={setZoom}
-          />
-        </div>
-        <div className="field-image-crop-actions">
-          <Button className="small" onClick={e => setTempImage(null)}>Cancela</Button>
-          <Button className="primary small" onClick={showCroppedImage}>Confirma</Button>
-        </div>
+    <div className={"field-image-content"+(valueImage?' has-file':'')}>
+      <input accept={accept} type="file" onChange={e => onInputFile(e)}  {...props} ref={ref}/>
+      <div className="field-image-area">
+        {valueImage && <img src={valueImage} /> }
       </div>
-    }
-    {!tempImage &&
-
-      <div className="field-image-select">
-        <input accept={accept} type="file" onChange={e => onInputFile(e)}  {...props} ref={ref}/>
-        <div className="field-image-area">
-          {valueImage && <img src={valueImage} /> }
-        </div>
-          {!finalImage &&
-            <div class="field-image-actions">
-              <a><Icon name="add-picture"/> <span>{label}</span> </a>
-            </div>
-          }
-          {finalImage &&
-            <div class="field-image-actions">
-              <a onClick={() => {setFinalImage(null); onChange("");}}>
-                <Icon name="minus-circled"/> <span>{labelRemove}</span>
-              </a>
-            </div>
-          }
-      </div>
-    }
+        {!valueImage &&
+          <div className="field-image-actions">
+            <a><Icon name="add-picture"/> <span>{label}</span> </a>
+          </div>
+        }
+        {valueImage &&
+          <div className="field-image-actions">
+            <a onClick={() => {setValueImage("");ref.current.value=""; onChange("");}}>
+              <Icon name="minus-circled"/> <span>{labelRemove}</span>
+            </a>
+          </div>
+        }
     </div>
   );
 })
@@ -110,8 +88,8 @@ FieldImage.defaultProps = {
    accept: "image/x-png,image/jpeg",
    label: "Enviar foto",
    labelRemove: "Remover foto",
-   resize: [640, 640],
-   cropShape: "rect"
+   maxWidth: 640,
+   maxHeight: 640
 }
 
 export { FieldImage };

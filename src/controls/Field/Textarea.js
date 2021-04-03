@@ -1,6 +1,6 @@
 import React, {useRef} from 'react'
 
-const FieldTextarea = React.forwardRef((props, ref) => {
+const FieldTextarea = React.forwardRef(({value, ...props}, ref) => {
   if (!ref) {
     ref = useRef()
   }
@@ -10,7 +10,7 @@ const FieldTextarea = React.forwardRef((props, ref) => {
     ref.current.style.height = ref.current.scrollHeight + 'px'
   }
   return (
-    <textarea {...props} onChange={onLocalChange} ref={ref}>{props.value}</textarea>
+    <textarea {...props} onChange={onLocalChange} ref={ref}>{value}</textarea>
   )
 })
 
