@@ -43,7 +43,9 @@ const FieldImage = React.forwardRef(({onChange, label, labelRemove, value, accep
     reader.onloadend = function () {
       setResizeImage(reader.result)
     }
-    reader.readAsDataURL(e.target.files[0]);
+    if (e.target.files[0]) {
+      reader.readAsDataURL(e.target.files[0]);
+    }
   }
 
   useEffect(() => {

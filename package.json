@@ -49,6 +49,7 @@
     "prettier": "^2.2.1"
   },
   "dependencies": {
+    "blackflag": "^0.0.3-beta.14",
     "react-number-format": "^4.4.4",
     "smoothscroll-polyfill": "^0.4.4"
   }
